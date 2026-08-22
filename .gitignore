@@ -26,8 +26,8 @@ develop-eggs/
 downloads/
 eggs/
 .eggs/
-lib/
-lib64/
+/lib/
+/lib64/
 parts/
 sdist/
 var/
@@ -35,6 +35,11 @@ wheels/
 *.egg-info/
 .installed.cfg
 *.egg
+
+# Preservar motor e skills do agente
+!.agents/
+!.agents/**
+
 
 # Django
 *.log
