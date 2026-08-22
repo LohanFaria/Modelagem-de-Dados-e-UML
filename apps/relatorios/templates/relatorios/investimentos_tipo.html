@@ -19,8 +19,12 @@
 </div>
 
 <div class="card">
-    <h2>Consolidação de Ativos por Tipo</h2>
+    <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 1rem;">
+        <h2>Consolidação de Ativos por Tipo</h2>
+        <a href="{% url 'relatorios:exportar_investimentos' %}" style="background: var(--success); color: #0f172a; padding: 0.4rem 0.8rem; border-radius: 6px; text-decoration: none; font-weight: 600; font-size: 0.875rem;">📥 Exportar para Excel (.xlsx)</a>
+    </div>
     <p style="margin-bottom: 1rem;">Patrimônio sob Custódia: <b style="color: var(--primary); font-size: 1.25rem;">R$ {{ dados.total_geral|floatformat:2 }}</b></p>
+
     <table>
         <thead>
             <tr><th>Tipo</th><th>Total Alocado (R$)</th><th>Quantidade</th><th>Percentual (%)</th></tr>

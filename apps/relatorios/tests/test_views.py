@@ -49,6 +49,28 @@ def test_gestor_acessa_todos_os_relatorios():
 
 
 @pytest.mark.django_db
+def test_exportacao_relatorios_para_excel():
+    client = Client()
+    user = User.objects.create_user(username="gestor_export", password="p1")
+    grupo, _ = Group.objects.get_or_create(name="Gestor")
+    user.groups.add(grupo)
+    client.force_login(user)
+
+    rotas_exportacao = [
+        "relatorios:exportar_investimentos",
+        "relatorios:exportar_reativacao",
+        "relatorios:exportar_produtividade",
+    ]
+
+    for rota in rotas_exportacao:
+        url = reverse(rota)
+        resp = client.get(url)
+        assert resp.status_code == 200
+        assert "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet" in resp["Content-Type"]
+        assert len(resp.content) > 0
+
+
+@pytest.mark.django_db
 def test_usuario_anonimo_redirecionado_para_login():
     client = Client()
     url = reverse("relatorios:painel")

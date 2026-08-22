@@ -4,12 +4,16 @@
 
 {% block content %}
 <div class="card">
-    <h2>Clientes sem Contato Recente (> {{ dias }} dias)</h2>
+    <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 1rem;">
+        <h2>Clientes sem Contato Recente (> {{ dias }} dias)</h2>
+        <a href="{% url 'relatorios:exportar_reativacao' %}?dias={{ dias }}" style="background: var(--success); color: #0f172a; padding: 0.4rem 0.8rem; border-radius: 6px; text-decoration: none; font-weight: 600; font-size: 0.875rem;">📥 Exportar para Excel (.xlsx)</a>
+    </div>
     <form method="GET" action="" style="margin-bottom: 1rem;">
         <label for="dias">Período de inatividade (dias):</label>
         <input type="number" id="dias" name="dias" value="{{ dias }}" style="padding: 0.25rem 0.5rem; width: 80px; background: var(--bg-main); color: var(--text-main); border: 1px solid var(--border-color); border-radius: 4px;">
         <button type="submit" style="padding: 0.25rem 0.75rem; background: var(--primary); color: #000; border: none; border-radius: 4px; font-weight: 600; cursor: pointer;">Filtrar</button>
     </form>
+
     <table>
         <thead>
             <tr><th>Nome do Cliente</th><th>CPF</th><th>Último Contato</th></tr>

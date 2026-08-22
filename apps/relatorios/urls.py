@@ -11,4 +11,8 @@ urlpatterns = [
     path('produtividade/', views.produtividade_funcionarios, name='produtividade'),
     path('reativacao/', views.clientes_sem_contato, name='reativacao'),
     path('qualidade-dados/', views.qualidade_dados, name='qualidade_dados'),
+    # Exportação para Excel
+    path('exportar/investimentos/', views.exportar_investimentos_xlsx, name='exportar_investimentos'),
+    path('exportar/reativacao/', views.exportar_reativacao_xlsx, name='exportar_reativacao'),
+    path('exportar/produtividade/', views.exportar_produtividade_xlsx, name='exportar_produtividade'),
 ]

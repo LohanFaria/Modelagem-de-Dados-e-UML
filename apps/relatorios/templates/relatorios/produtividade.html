@@ -20,8 +20,12 @@
 
 <div class="charts-grid">
     <div class="card">
-        <h2>Detalhamento por Funcionário</h2>
+        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 1rem;">
+            <h2>Detalhamento por Funcionário</h2>
+            <a href="{% url 'relatorios:exportar_produtividade' %}" style="background: var(--success); color: #0f172a; padding: 0.4rem 0.8rem; border-radius: 6px; text-decoration: none; font-weight: 600; font-size: 0.875rem;">📥 Exportar para Excel (.xlsx)</a>
+        </div>
         <p style="margin-bottom: 1rem;">Total de Interações: <b style="color: var(--primary);">{{ dados.total_atendimentos }}</b></p>
+
         <table>
             <thead>
                 <tr><th>Funcionário</th><th>Volume de Atendimentos</th></tr>
