@@ -38,8 +38,12 @@ jobs:
           .venv/bin/pip install --upgrade pip
           .venv/bin/pip install -r requirements.txt
 
-      - name: Run onp-spec Verify & Audit
+      - name: Run onp-spec Verify
         run: |
           source .venv/bin/activate
           node .agents/skills/onp-spec-driven/scripts/onp-spec.mjs verify xpto-investimentos-fullstack-django
+
+      - name: Run onp-spec Audit CI Gate
+        run: |
+          source .venv/bin/activate
           node .agents/skills/onp-spec-driven/scripts/onp-spec.mjs audit --ci
