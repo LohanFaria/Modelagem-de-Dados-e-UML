@@ -3,32 +3,81 @@
 {% block title %}Clientes sem Contato{% endblock %}
 
 {% block content %}
-<div class="card">
-    <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 1rem;">
-        <h2>Clientes sem Contato Recente (> {{ dias }} dias)</h2>
-        <a href="{% url 'relatorios:exportar_reativacao' %}?dias={{ dias }}" style="background: var(--success); color: #0f172a; padding: 0.4rem 0.8rem; border-radius: 6px; text-decoration: none; font-weight: 600; font-size: 0.875rem;">📥 Exportar para Excel (.xlsx)</a>
+<!-- Page Header -->
+<div class="md-page-header">
+    <div>
+        <h1 class="md-page-header__title">Oportunidades de Reativação de Clientes</h1>
+        <p class="md-page-header__subtitle">Identificação de clientes sem interação comercial recente para atuação preventiva e relacionamento.</p>
     </div>
-    <form method="GET" action="" style="margin-bottom: 1rem;">
-        <label for="dias">Período de inatividade (dias):</label>
-        <input type="number" id="dias" name="dias" value="{{ dias }}" style="padding: 0.25rem 0.5rem; width: 80px; background: var(--bg-main); color: var(--text-main); border: 1px solid var(--border-color); border-radius: 4px;">
-        <button type="submit" style="padding: 0.25rem 0.75rem; background: var(--primary); color: #000; border: none; border-radius: 4px; font-weight: 600; cursor: pointer;">Filtrar</button>
-    </form>
+    <div>
+        <a href="{% url 'relatorios:exportar_reativacao' %}?dias={{ dias }}" class="md-btn md-btn--success">
+            <span class="material-symbols-outlined" style="font-size: 18px;">download</span>
+            Exportar Excel (.xlsx)
+        </a>
+    </div>
+</div>
 
-    <table>
-        <thead>
-            <tr><th>Nome do Cliente</th><th>CPF</th><th>Último Contato</th></tr>
-        </thead>
-        <tbody>
-            {% for c in clientes %}
-            <tr>
-                <td>{{ c.nome }}</td>
-                <td>{{ c.cpf }}</td>
-                <td>{{ c.ultimo_contato|date:"d/m/Y"|default:"Nunca contatado" }}</td>
-            </tr>
-            {% empty %}
-            <tr><td colspan="3">Nenhum cliente inativo no período.</td></tr>
-            {% endfor %}
-        </tbody>
-    </table>
+<!-- Filter Card -->
+<div class="md-card">
+    <div class="md-card__header">
+        <h2 class="md-card__title">
+            <span class="material-symbols-outlined" style="color: var(--md-primary);">filter_list</span>
+            Parâmetros de Inatividade
+        </h2>
+    </div>
+    <form method="GET" action="" style="display: flex; gap: 1rem; align-items: center; flex-wrap: wrap;">
+        <label for="dias" style="font-size: 0.875rem; font-weight: 500; color: var(--md-on-surface-medium);">
+            Dias sem atendimento comercial superior a:
+        </label>
+        <input type="number" id="dias" name="dias" value="{{ dias }}" min="1" class="md-form-control" style="width: 100px; font-weight: 700;">
+        <button type="submit" class="md-btn md-btn--contained">
+            <span class="material-symbols-outlined" style="font-size: 18px;">search</span>
+            Filtrar Clientes
+        </button>
+    </form>
+</div>
+
+<!-- Inactive Clients Table -->
+<div class="md-card">
+    <div class="md-card__header">
+        <h2 class="md-card__title">
+            <span class="material-symbols-outlined" style="color: var(--md-warning);">history_toggle_off</span>
+            Clientes Inativos Identificados (&gt; {{ dias }} dias)
+        </h2>
+        <span style="font-size: 0.875rem; color: var(--md-on-surface-medium);">
+            Total: <b>{{ clientes|length }} clientes</b>
+        </span>
+    </div>
+
+    <div class="md-table-responsive">
+        <table class="md-data-table">
+            <thead>
+                <tr>
+                    <th>Nome do Cliente</th>
+                    <th>CPF</th>
+                    <th>Data do Último Contato</th>
+                    <th>Status da Interação</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for c in clientes %}
+                <tr>
+                    <td><b>{{ c.nome }}</b></td>
+                    <td>{{ c.cpf }}</td>
+                    <td>{{ c.ultimo_contato|date:"d/m/Y"|default:"—" }}</td>
+                    <td>
+                        {% if c.ultimo_contato %}
+                        <span class="md-chip md-chip--warning">Inativo há &gt; {{ dias }} dias</span>
+                        {% else %}
+                        <span class="md-chip md-chip--error">Nunca contatado</span>
+                        {% endif %}
+                    </td>
+                </tr>
+                {% empty %}
+                <tr><td colspan="4" style="text-align: center; color: var(--md-on-surface-medium);">Nenhum cliente inativo no período informado.</td></tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
 </div>
 {% endblock %}

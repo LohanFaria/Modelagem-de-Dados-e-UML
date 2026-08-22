@@ -3,71 +3,171 @@
 {% block title %}Carteira do Cliente{% endblock %}
 
 {% block content %}
-<div class="card">
-    <h2>Selecionar Cliente</h2>
-    <form method="GET" action="">
-        <select name="cliente_id" onchange="this.form.submit()" style="padding: 0.5rem; background: var(--bg-main); color: var(--text-main); border: 1px solid var(--border-color); border-radius: 4px;">
-            <option value="">-- Escolha um cliente --</option>
+<!-- Page Header -->
+<div class="md-page-header">
+    <div>
+        <h1 class="md-page-header__title">Posição Consolidada da Carteira</h1>
+        <p class="md-page-header__subtitle">Consulta analítica de saldos, alocações e histórico de atendimentos por cliente.</p>
+    </div>
+</div>
+
+<!-- Client Selector Card -->
+<div class="md-card">
+    <div class="md-card__header">
+        <h2 class="md-card__title">
+            <span class="material-symbols-outlined" style="color: var(--md-primary);">person_search</span>
+            Selecionar Cliente
+        </h2>
+    </div>
+    <form method="GET" action="" style="display: flex; gap: 1rem; align-items: center;">
+        <select name="cliente_id" onchange="this.form.submit()" class="md-form-control" style="min-width: 320px; font-weight: 500;">
+            <option value="">-- Selecione um cliente cadastrado --</option>
             {% for c in clientes_lista %}
-            <option value="{{ c.id }}" {% if c.id == cliente_selecionado %}selected{% endif %}>{{ c.nome }} ({{ c.cpf }})</option>
+            <option value="{{ c.id }}" {% if c.id == cliente_selecionado %}selected{% endif %}>{{ c.nome }} — CPF {{ c.cpf }}</option>
             {% endfor %}
         </select>
+        {% if cliente_selecionado %}
+        <a href="{% url 'relatorios:carteira_cliente' %}" class="md-btn md-btn--text">Limpar Filtro</a>
+        {% endif %}
     </form>
 </div>
 
 {% if dados_carteira %}
-<div class="card">
-    <h2>Patrimônio Total: R$ {{ dados_carteira.patrimonio_total|floatformat:2 }}</h2>
-    <p>Saldo em Contas: <b>R$ {{ dados_carteira.saldo_total|floatformat:2 }}</b> | Total em Aplicações: <b>R$ {{ dados_carteira.investimento_total|floatformat:2 }}</b></p>
-    
-    <h3 style="margin-top: 1.5rem; font-size: 1.1rem; color: var(--primary);">Contas Bancárias e Saldo Atual</h3>
-    <table>
-        <thead>
-            <tr><th>Banco</th><th>Agência</th><th>Conta</th><th>Saldo Atual (R$)</th><th>Data Referência</th></tr>
-        </thead>
-        <tbody>
-            {% for c in dados_carteira.contas %}
-            <tr>
-                <td>{{ c.banco }}</td><td>{{ c.agencia }}</td><td>{{ c.conta }}</td>
-                <td>R$ {{ c.saldo_atual|floatformat:2 }}</td><td>{{ c.data_saldo|date:"d/m/Y"|default:"—" }}</td>
-            </tr>
-            {% empty %}
-            <tr><td colspan="5">Nenhuma conta cadastrada.</td></tr>
-            {% endfor %}
-        </tbody>
-    </table>
+<!-- Portfolio KPI Summary -->
+<div class="md-kpi-grid">
+    <div class="md-kpi-card">
+        <div class="md-kpi-avatar md-kpi-avatar--success">
+            <span class="material-symbols-outlined">account_balance</span>
+        </div>
+        <div class="md-kpi-content">
+            <div class="md-kpi-content__label">Patrimônio Total</div>
+            <div class="md-kpi-content__value" style="color: var(--md-success);">R$ {{ dados_carteira.patrimonio_total|floatformat:2 }}</div>
+        </div>
+    </div>
 
-    <h3 style="margin-top: 1.5rem; font-size: 1.1rem; color: var(--primary);">Posição de Investimentos</h3>
-    <table>
-        <thead>
-            <tr><th>Tipo de Ativo</th><th>Valor Aplicado (R$)</th><th>Data da Aplicação</th></tr>
-        </thead>
-        <tbody>
-            {% for inv in dados_carteira.investimentos %}
-            <tr>
-                <td>{{ inv.tipo }}</td><td>R$ {{ inv.valor|floatformat:2 }}</td><td>{{ inv.data_aplicacao|date:"d/m/Y"|default:"—" }}</td>
-            </tr>
-            {% empty %}
-            <tr><td colspan="3">Nenhum investimento cadastrado.</td></tr>
-            {% endfor %}
-        </tbody>
-    </table>
+    <div class="md-kpi-card">
+        <div class="md-kpi-avatar md-kpi-avatar--primary">
+            <span class="material-symbols-outlined">savings</span>
+        </div>
+        <div class="md-kpi-content">
+            <div class="md-kpi-content__label">Saldo em Contas</div>
+            <div class="md-kpi-content__value">R$ {{ dados_carteira.saldo_total|floatformat:2 }}</div>
+        </div>
+    </div>
 
-    <h3 style="margin-top: 1.5rem; font-size: 1.1rem; color: var(--primary);">Histórico Recente de Contatos</h3>
-    <table>
-        <thead>
-            <tr><th>Data</th><th>Funcionário</th><th>Forma</th><th>Assunto</th><th>Observações</th></tr>
-        </thead>
-        <tbody>
-            {% for ct in dados_carteira.ultimos_contatos %}
-            <tr>
-                <td>{{ ct.data|date:"d/m/Y" }}</td><td>{{ ct.funcionario }}</td><td>{{ ct.forma }}</td><td>{{ ct.assunto }}</td><td>{{ ct.observacao }}</td>
-            </tr>
-            {% empty %}
-            <tr><td colspan="5">Nenhum contato registrado.</td></tr>
-            {% endfor %}
-        </tbody>
-    </table>
+    <div class="md-kpi-card">
+        <div class="md-kpi-avatar md-kpi-avatar--info">
+            <span class="material-symbols-outlined">trending_up</span>
+        </div>
+        <div class="md-kpi-content">
+            <div class="md-kpi-content__label">Aplicações Ativas</div>
+            <div class="md-kpi-content__value">R$ {{ dados_carteira.investimento_total|floatformat:2 }}</div>
+        </div>
+    </div>
+</div>
+
+<!-- Bank Accounts Table -->
+<div class="md-card">
+    <div class="md-card__header">
+        <h2 class="md-card__title">
+            <span class="material-symbols-outlined" style="color: var(--md-primary);">account_balance</span>
+            Contas Bancárias & Saldos Atuais
+        </h2>
+    </div>
+    <div class="md-table-responsive">
+        <table class="md-data-table">
+            <thead>
+                <tr>
+                    <th>Banco</th>
+                    <th>Agência</th>
+                    <th>Conta</th>
+                    <th>Saldo Atual (R$)</th>
+                    <th>Data de Referência</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for c in dados_carteira.contas %}
+                <tr>
+                    <td><b>{{ c.banco }}</b></td>
+                    <td>{{ c.agencia }}</td>
+                    <td>{{ c.conta }}</td>
+                    <td style="font-weight: 700; color: var(--md-success);">R$ {{ c.saldo_atual|floatformat:2 }}</td>
+                    <td>{{ c.data_saldo|date:"d/m/Y"|default:"—" }}</td>
+                </tr>
+                {% empty %}
+                <tr><td colspan="5" style="text-align: center; color: var(--md-on-surface-medium);">Nenhuma conta bancária registrada para este cliente.</td></tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+</div>
+
+<!-- Investments Table -->
+<div class="md-card">
+    <div class="md-card__header">
+        <h2 class="md-card__title">
+            <span class="material-symbols-outlined" style="color: var(--md-secondary);">pie_chart</span>
+            Posição Detalhada de Investimentos
+        </h2>
+    </div>
+    <div class="md-table-responsive">
+        <table class="md-data-table">
+            <thead>
+                <tr>
+                    <th>Tipo de Ativo</th>
+                    <th>Valor Aplicado (R$)</th>
+                    <th>Data da Aplicação</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for inv in dados_carteira.investimentos %}
+                <tr>
+                    <td><b>{{ inv.tipo }}</b></td>
+                    <td style="font-weight: 700;">R$ {{ inv.valor|floatformat:2 }}</td>
+                    <td>{{ inv.data_aplicacao|date:"d/m/Y"|default:"—" }}</td>
+                </tr>
+                {% empty %}
+                <tr><td colspan="3" style="text-align: center; color: var(--md-on-surface-medium);">Nenhum investimento registrado para este cliente.</td></tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+</div>
+
+<!-- Interaction History -->
+<div class="md-card">
+    <div class="md-card__header">
+        <h2 class="md-card__title">
+            <span class="material-symbols-outlined" style="color: var(--md-primary);">history</span>
+            Histórico Recente de Atendimentos
+        </h2>
+    </div>
+    <div class="md-table-responsive">
+        <table class="md-data-table">
+            <thead>
+                <tr>
+                    <th>Data / Hora</th>
+                    <th>Consultor</th>
+                    <th>Canal</th>
+                    <th>Assunto</th>
+                    <th>Observações</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for cont in dados_carteira.contatos %}
+                <tr>
+                    <td>{{ cont.data|date:"d/m/Y H:i" }}</td>
+                    <td><b>{{ cont.funcionario }}</b></td>
+                    <td><span class="md-chip md-chip--info">{{ cont.forma }}</span></td>
+                    <td><b>{{ cont.assunto }}</b></td>
+                    <td style="color: var(--md-on-surface-medium);">{{ cont.observacoes|default:"—" }}</td>
+                </tr>
+                {% empty %}
+                <tr><td colspan="5" style="text-align: center; color: var(--md-on-surface-medium);">Nenhum histórico de atendimento registrado.</td></tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
 </div>
 {% endif %}
 {% endblock %}

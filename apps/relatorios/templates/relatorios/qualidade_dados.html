@@ -3,39 +3,133 @@
 {% block title %}Qualidade Cadastral{% endblock %}
 
 {% block content %}
-<div class="card">
-    <h2>Diagnóstico de Integridade Cadastral</h2>
-    <table>
-        <thead>
-            <tr><th>Indicador de Qualidade</th><th>Contagem</th><th>Status</th></tr>
-        </thead>
-        <tbody>
-            <tr>
-                <td>Clientes sem Telefone</td>
-                <td>{{ dados.sem_telefone }}</td>
-                <td>{% if dados.sem_telefone > 0 %}<span class="badge badge-warning">Atenção</span>{% else %}<span class="badge badge-success">OK</span>{% endif %}</td>
-            </tr>
-            <tr>
-                <td>Clientes sem E-mail</td>
-                <td>{{ dados.sem_email }}</td>
-                <td>{% if dados.sem_email > 0 %}<span class="badge badge-warning">Atenção</span>{% else %}<span class="badge badge-success">OK</span>{% endif %}</td>
-            </tr>
-            <tr>
-                <td>Clientes sem Conta Bancária</td>
-                <td>{{ dados.sem_conta }}</td>
-                <td>{% if dados.sem_conta > 0 %}<span class="badge badge-warning">Atenção</span>{% else %}<span class="badge badge-success">OK</span>{% endif %}</td>
-            </tr>
-            <tr>
-                <td>Contatos em Quarentena Pendentes</td>
-                <td>{{ dados.quarentena_pendente }}</td>
-                <td>{% if dados.quarentena_pendente > 0 %}<span class="badge badge-danger">Crítico</span>{% else %}<span class="badge badge-success">Limpo</span>{% endif %}</td>
-            </tr>
-            <tr>
-                <td>Contatos em Quarentena Já Resolvidos</td>
-                <td>{{ dados.quarentena_resolvida }}</td>
-                <td><span class="badge badge-success">Resolvido</span></td>
-            </tr>
-        </tbody>
-    </table>
+<!-- Page Header -->
+<div class="md-page-header">
+    <div>
+        <h1 class="md-page-header__title">Auditoria de Qualidade Cadastral</h1>
+        <p class="md-page-header__subtitle">Monitoramento contínuo de completude cadastral e quarentena de inconsistências.</p>
+    </div>
+    <div>
+        <a href="/admin/relacionamento/contatoquarentena/" class="md-btn md-btn--contained" style="background: var(--md-warning); color: #000;">
+            <span class="material-symbols-outlined" style="font-size: 18px;">rule</span>
+            Gerenciar Quarentena
+        </a>
+    </div>
+</div>
+
+<!-- Diagnostics Table Card -->
+<div class="md-card">
+    <div class="md-card__header">
+        <h2 class="md-card__title">
+            <span class="material-symbols-outlined" style="color: var(--md-primary);">verified</span>
+            Painel de Integridade & Não-Conformidades
+        </h2>
+    </div>
+
+    <div class="md-table-responsive">
+        <table class="md-data-table">
+            <thead>
+                <tr>
+                    <th>Indicador de Qualidade</th>
+                    <th>Registros Afetados</th>
+                    <th>Nível de Atenção</th>
+                    <th>Ação Recomendada</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>
+                        <div style="display: flex; align-items: center; gap: 0.5rem;">
+                            <span class="material-symbols-outlined" style="color: var(--md-on-surface-medium);">phone_disabled</span>
+                            <span>Clientes sem Telefone</span>
+                        </div>
+                    </td>
+                    <td style="font-weight: 700;">{{ dados.sem_telefone }}</td>
+                    <td>
+                        {% if dados.sem_telefone > 0 %}
+                        <span class="md-chip md-chip--warning">Atenção</span>
+                        {% else %}
+                        <span class="md-chip md-chip--success">Conforme</span>
+                        {% endif %}
+                    </td>
+                    <td style="color: var(--md-on-surface-medium);">
+                        {% if dados.sem_telefone > 0 %}Completar cadastro telefônico{% else %}Nenhuma ação requerida{% endif %}
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <div style="display: flex; align-items: center; gap: 0.5rem;">
+                            <span class="material-symbols-outlined" style="color: var(--md-on-surface-medium);">mail_lock</span>
+                            <span>Clientes sem E-mail</span>
+                        </div>
+                    </td>
+                    <td style="font-weight: 700;">{{ dados.sem_email }}</td>
+                    <td>
+                        {% if dados.sem_email > 0 %}
+                        <span class="md-chip md-chip--warning">Atenção</span>
+                        {% else %}
+                        <span class="md-chip md-chip--success">Conforme</span>
+                        {% endif %}
+                    </td>
+                    <td style="color: var(--md-on-surface-medium);">
+                        {% if dados.sem_email > 0 %}Solicitar e-mail de contato{% else %}Nenhuma ação requerida{% endif %}
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <div style="display: flex; align-items: center; gap: 0.5rem;">
+                            <span class="material-symbols-outlined" style="color: var(--md-on-surface-medium);">account_balance</span>
+                            <span>Clientes sem Conta Bancária</span>
+                        </div>
+                    </td>
+                    <td style="font-weight: 700;">{{ dados.sem_conta }}</td>
+                    <td>
+                        {% if dados.sem_conta > 0 %}
+                        <span class="md-chip md-chip--warning">Atenção</span>
+                        {% else %}
+                        <span class="md-chip md-chip--success">Conforme</span>
+                        {% endif %}
+                    </td>
+                    <td style="color: var(--md-on-surface-medium);">
+                        {% if dados.sem_conta > 0 %}Vincular conta bancária para liquidação{% else %}Nenhuma ação requerida{% endif %}
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <div style="display: flex; align-items: center; gap: 0.5rem;">
+                            <span class="material-symbols-outlined" style="color: var(--md-error);">security_update_warning</span>
+                            <span>Contatos em Quarentena Pendentes</span>
+                        </div>
+                    </td>
+                    <td style="font-weight: 700; color: var(--md-error);">{{ dados.quarentena_pendente }}</td>
+                    <td>
+                        {% if dados.quarentena_pendente > 0 %}
+                        <span class="md-chip md-chip--error">Crítico</span>
+                        {% else %}
+                        <span class="md-chip md-chip--success">Fila Vazia</span>
+                        {% endif %}
+                    </td>
+                    <td>
+                        {% if dados.quarentena_pendente > 0 %}
+                        <a href="/admin/relacionamento/contatoquarentena/" style="color: var(--md-primary); font-weight: 600; text-decoration: none;">Sanear na Quarentena →</a>
+                        {% else %}
+                        Todos os registros saneados
+                        {% endif %}
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <div style="display: flex; align-items: center; gap: 0.5rem;">
+                            <span class="material-symbols-outlined" style="color: var(--md-success);">task_alt</span>
+                            <span>Contatos em Quarentena Saneados</span>
+                        </div>
+                    </td>
+                    <td style="font-weight: 700;">{{ dados.quarentena_resolvida }}</td>
+                    <td><span class="md-chip md-chip--success">Saneado</span></td>
+                    <td style="color: var(--md-on-surface-medium);">Registros promovidos ao banco oficial</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
 </div>
 {% endblock %}

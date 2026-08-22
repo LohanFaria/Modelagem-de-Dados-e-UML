@@ -3,63 +3,110 @@
 {% block title %}Produtividade da Equipe{% endblock %}
 
 {% block content %}
-<div class="charts-grid">
-    <div class="card">
-        <h2>Atendimentos por Consultor</h2>
-        <div class="chart-container">
+<!-- Page Header -->
+<div class="md-page-header">
+    <div>
+        <h1 class="md-page-header__title">Produtividade & Desempenho de Consultores</h1>
+        <p class="md-page-header__subtitle">Métricas analíticas de interações, canais de relacionamento e volumetria por produto.</p>
+    </div>
+    <div>
+        <a href="{% url 'relatorios:exportar_produtividade' %}" class="md-btn md-btn--success">
+            <span class="material-symbols-outlined" style="font-size: 18px;">download</span>
+            Exportar Excel (.xlsx)
+        </a>
+    </div>
+</div>
+
+<!-- Charts Grid -->
+<div class="md-charts-grid">
+    <div class="md-card">
+        <div class="md-card__header">
+            <h2 class="md-card__title">
+                <span class="material-symbols-outlined" style="color: var(--md-primary);">bar_chart</span>
+                Volume de Atendimentos por Consultor
+            </h2>
+        </div>
+        <div class="md-chart-container">
             <canvas id="produtividadeFuncChart"></canvas>
         </div>
     </div>
-    <div class="card">
-        <h2>Demandas por Assunto / Produto</h2>
-        <div class="chart-container">
+
+    <div class="md-card">
+        <div class="md-card__header">
+            <h2 class="md-card__title">
+                <span class="material-symbols-outlined" style="color: var(--md-secondary);">pie_chart</span>
+                Demandas por Assunto / Produto
+            </h2>
+        </div>
+        <div class="md-chart-container">
             <canvas id="produtividadeAssuntoChart"></canvas>
         </div>
     </div>
 </div>
 
-<div class="charts-grid">
-    <div class="card">
-        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 1rem;">
-            <h2>Detalhamento por Funcionário</h2>
-            <a href="{% url 'relatorios:exportar_produtividade' %}" style="background: var(--success); color: #0f172a; padding: 0.4rem 0.8rem; border-radius: 6px; text-decoration: none; font-weight: 600; font-size: 0.875rem;">📥 Exportar para Excel (.xlsx)</a>
+<!-- Detailed Productivity Tables Grid -->
+<div class="md-charts-grid">
+    <div class="md-card">
+        <div class="md-card__header">
+            <h2 class="md-card__title">
+                <span class="material-symbols-outlined" style="color: var(--md-primary);">badge</span>
+                Detalhamento por Funcionário
+            </h2>
+            <span style="font-size: 0.875rem; color: var(--md-on-surface-medium);">
+                Total Geral: <b style="color: var(--md-primary);">{{ dados.total_atendimentos }} atendimentos</b>
+            </span>
         </div>
-        <p style="margin-bottom: 1rem;">Total de Interações: <b style="color: var(--primary);">{{ dados.total_atendimentos }}</b></p>
 
-        <table>
-            <thead>
-                <tr><th>Funcionário</th><th>Volume de Atendimentos</th></tr>
-            </thead>
-            <tbody>
-                {% for item in dados.por_funcionario %}
-                <tr>
-                    <td><b>{{ item.funcionario__nome }}</b></td>
-                    <td><span class="badge badge-success">{{ item.total }} contatos</span></td>
-                </tr>
-                {% empty %}
-                <tr><td colspan="2">Nenhum atendimento registrado.</td></tr>
-                {% endfor %}
-            </tbody>
-        </table>
+        <div class="md-table-responsive">
+            <table class="md-data-table">
+                <thead>
+                    <tr>
+                        <th>Nome do Consultor</th>
+                        <th>Volume de Atendimentos</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for item in dados.por_funcionario %}
+                    <tr>
+                        <td><b>{{ item.funcionario__nome }}</b></td>
+                        <td><span class="md-chip md-chip--info">{{ item.total }} contatos</span></td>
+                    </tr>
+                    {% empty %}
+                    <tr><td colspan="2" style="text-align: center; color: var(--md-on-surface-medium);">Nenhum atendimento registrado.</td></tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
     </div>
 
-    <div class="card">
-        <h2>Distribuição por Assunto</h2>
-        <table>
-            <thead>
-                <tr><th>Assunto / Produto</th><th>Total de Contatos</th></tr>
-            </thead>
-            <tbody>
-                {% for item in dados.por_assunto %}
-                <tr>
-                    <td><b>{{ item.assunto__nome }}</b></td>
-                    <td><span class="badge badge-warning">{{ item.total }} contatos</span></td>
-                </tr>
-                {% empty %}
-                <tr><td colspan="2">Nenhum assunto registrado.</td></tr>
-                {% endfor %}
-            </tbody>
-        </table>
+    <div class="md-card">
+        <div class="md-card__header">
+            <h2 class="md-card__title">
+                <span class="material-symbols-outlined" style="color: var(--md-secondary);">category</span>
+                Distribuição por Assunto / Demanda
+            </h2>
+        </div>
+
+        <div class="md-table-responsive">
+            <table class="md-data-table">
+                <thead>
+                    <tr>
+                        <th>Assunto / Demanda</th>
+                        <th>Total de Contatos</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for item in dados.por_assunto %}
+                    <tr>
+                        <td><b>{{ item.assunto__nome }}</b></td>
+                        <td><span class="md-chip md-chip--warning">{{ item.total }} contatos</span></td>
+                    </tr>
+                    {% empty %}
+                    <tr><td colspan="2" style="text-align: center; color: var(--md-on-surface-medium);">Nenhum assunto registrado.</td></tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
     </div>
 </div>
 
@@ -78,8 +125,9 @@
             datasets: [{
                 label: 'Atendimentos',
                 data: funcData,
-                backgroundColor: '#38bdf8',
+                backgroundColor: '#1e3a8a',
                 borderRadius: 4,
+                hoverBackgroundColor: '#3b82f6',
             }]
         },
         options: {
@@ -87,8 +135,8 @@
             maintainAspectRatio: false,
             plugins: { legend: { display: false } },
             scales: {
-                x: { ticks: { color: '#94a3b8' }, grid: { display: false } },
-                y: { ticks: { color: '#94a3b8', stepSize: 1 }, grid: { color: 'rgba(255,255,255,0.05)' } }
+                x: { ticks: { font: { family: 'Roboto', size: 11 }, color: '#64748b' }, grid: { display: false } },
+                y: { ticks: { font: { family: 'Roboto', size: 11 }, color: '#64748b', stepSize: 1 }, grid: { color: '#f1f5f9' } }
             }
         }
     });
@@ -100,15 +148,19 @@
             labels: assuntoLabels,
             datasets: [{
                 data: assuntoData,
-                backgroundColor: ['#818cf8', '#34d399', '#fbbf24', '#f87171', '#c084fc', '#2dd4bf'],
-                borderWidth: 0,
+                backgroundColor: ['#1e3a8a', '#0d9488', '#f59e0b', '#ef4444', '#8b5cf6', '#06b6d4'],
+                borderWidth: 2,
+                borderColor: '#ffffff',
             }]
         },
         options: {
             responsive: true,
             maintainAspectRatio: false,
             plugins: {
-                legend: { position: 'right', labels: { color: '#94a3b8', boxWidth: 12 } }
+                legend: {
+                    position: 'right',
+                    labels: { font: { family: 'Roboto', size: 12 }, color: '#64748b', boxWidth: 14, padding: 10 }
+                }
             }
         }
     });

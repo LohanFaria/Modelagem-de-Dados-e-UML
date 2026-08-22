@@ -3,112 +3,615 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}Inteligência & Relatórios{% endblock %} — XPTO Investimentos</title>
+    
+    <!-- Google Fonts: Roboto & Material Symbols Outlined (Material Design 2) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,300;0,400;0,500;0,700;1,400&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+    
+    <!-- Chart.js -->
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
     <style>
+        /* ==========================================================================
+           MATERIAL DESIGN 2 — WEB STARTER KIT DESIGN SYSTEM (XPTO FINTECH)
+           ========================================================================== */
         :root {
-            --bg-main: #0f172a;
-            --bg-card: #1e293b;
-            --border-color: #334155;
-            --text-main: #f8fafc;
-            --text-muted: #94a3b8;
-            --primary: #38bdf8;
-            --primary-hover: #0284c7;
-            --success: #4ade80;
-            --warning: #facc15;
-            --danger: #f87171;
-        }
-        * { box-sizing: border-box; margin: 0; padding: 0; }
-        body {
-            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
-            background-color: var(--bg-main);
-            color: var(--text-main);
-            line-height: 1.5;
-            padding: 2rem;
-        }
-        .charts-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
-            gap: 1.5rem;
-            margin-bottom: 1.5rem;
-        }
-        .chart-container {
-            position: relative;
-            height: 280px;
-            width: 100%;
-            display: flex;
-            justify-content: center;
-            align-items: center;
+            /* Palette Primária & Secundária */
+            --md-primary: #1e3a8a;
+            --md-primary-variant: #172554;
+            --md-primary-light: #3b82f6;
+            --md-primary-tint: #eff6ff;
+            --md-secondary: #0d9488;
+            --md-secondary-light: #14b8a6;
+            --md-secondary-tint: #f0fdf4;
+            
+            /* Superfícies & Cores Neutras */
+            --md-background: #f8fafc;
+            --md-surface: #ffffff;
+            --md-surface-variant: #f1f5f9;
+            --md-on-primary: #ffffff;
+            --md-on-secondary: #ffffff;
+            --md-on-background: #0f172a;
+            --md-on-surface: #1e293b;
+            --md-on-surface-medium: #64748b;
+            --md-on-surface-disabled: #94a3b8;
+            --md-outline: #e2e8f0;
+            --md-outline-light: #f1f5f9;
+
+            /* Status & Alertas */
+            --md-success: #059669;
+            --md-success-tint: #ecfdf5;
+            --md-warning: #d97706;
+            --md-warning-tint: #fffbeb;
+            --md-error: #dc2626;
+            --md-error-tint: #fef2f2;
+            --md-info: #2563eb;
+            --md-info-tint: #eff6ff;
+
+            /* Elevações e Sombras Material Design 2 */
+            --md-elevation-0: none;
+            --md-elevation-1: 0 1px 3px rgba(0, 0, 0, 0.08), 0 1px 2px rgba(0, 0, 0, 0.04);
+            --md-elevation-2: 0 3px 6px rgba(0, 0, 0, 0.07), 0 2px 4px rgba(0, 0, 0, 0.04);
+            --md-elevation-4: 0 10px 20px rgba(0, 0, 0, 0.08), 0 3px 6px rgba(0, 0, 0, 0.05);
+            --md-elevation-8: 0 14px 28px rgba(0, 0, 0, 0.12), 0 10px 10px rgba(0, 0, 0, 0.08);
+
+            /* Dimensões do Shell */
+            --top-app-bar-height: 64px;
+            --drawer-width: 270px;
+            --border-radius-base: 8px;
+            --border-radius-pill: 9999px;
+            --transition-smooth: all 0.25s cubic-bezier(0.4, 0.0, 0.2, 1);
         }
 
-        .header {
+        /* Reset e Base */
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        
+        body {
+            font-family: 'Roboto', -apple-system, BlinkMacSystemFont, sans-serif;
+            background-color: var(--md-background);
+            color: var(--md-on-surface);
+            line-height: 1.5;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+            display: flex;
+            min-height: 100vh;
+        }
+
+        /* Material Symbols Outlined Helper */
+        .material-symbols-outlined {
+            font-family: 'Material Symbols Outlined';
+            font-weight: normal;
+            font-style: normal;
+            font-size: 20px;
+            line-height: 1;
+            letter-spacing: normal;
+            text-transform: none;
+            display: inline-block;
+            white-space: nowrap;
+            word-wrap: normal;
+            direction: ltr;
+            vertical-align: middle;
+        }
+
+        /* ==========================================================================
+           TOP APP BAR (mdc-top-app-bar)
+           ========================================================================== */
+        .md-top-app-bar {
+            position: fixed;
+            top: 0;
+            left: var(--drawer-width);
+            right: 0;
+            height: var(--top-app-bar-height);
+            background: var(--md-surface);
+            border-bottom: 1px solid var(--md-outline);
+            box-shadow: var(--md-elevation-1);
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 0 2rem;
+            z-index: 100;
+            transition: var(--transition-smooth);
+        }
+
+        .md-top-app-bar__title {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            font-size: 1.125rem;
+            font-weight: 500;
+            color: var(--md-on-background);
+            letter-spacing: 0.15px;
+        }
+
+        .md-top-app-bar__actions {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        /* ==========================================================================
+           NAVIGATION DRAWER (mdc-drawer)
+           ========================================================================== */
+        .md-drawer {
+            position: fixed;
+            top: 0;
+            left: 0;
+            bottom: 0;
+            width: var(--drawer-width);
+            background: var(--md-surface);
+            border-right: 1px solid var(--md-outline);
+            display: flex;
+            flex-direction: column;
+            z-index: 101;
+            overflow-y: auto;
+        }
+
+        .md-drawer__header {
+            padding: 1.5rem 1.5rem 1rem 1.5rem;
+            border-bottom: 1px solid var(--md-outline-light);
+            display: flex;
+            align-items: center;
+            gap: 0.875rem;
+        }
+
+        .md-drawer__logo-badge {
+            width: 40px;
+            height: 40px;
+            border-radius: 8px;
+            background: linear-gradient(135deg, var(--md-primary), #3b82f6);
+            color: #ffffff;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+            font-size: 1.25rem;
+            box-shadow: var(--md-elevation-2);
+        }
+
+        .md-drawer__brand-info h2 {
+            font-size: 1rem;
+            font-weight: 700;
+            color: var(--md-on-background);
+            letter-spacing: 0.2px;
+        }
+
+        .md-drawer__brand-info p {
+            font-size: 0.75rem;
+            color: var(--md-on-surface-medium);
+            font-weight: 400;
+        }
+
+        .md-drawer__content {
+            padding: 1rem 0.75rem;
+            flex: 1;
+        }
+
+        .md-drawer__section-title {
+            font-size: 0.6875rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1.2px;
+            color: var(--md-on-surface-disabled);
+            padding: 0.75rem 0.75rem 0.375rem 0.75rem;
+            margin-top: 0.5rem;
+        }
+
+        .md-drawer__nav-item {
+            display: flex;
+            align-items: center;
+            gap: 0.875rem;
+            padding: 0.625rem 0.875rem;
+            border-radius: 6px;
+            color: var(--md-on-surface);
+            text-decoration: none;
+            font-size: 0.875rem;
+            font-weight: 500;
+            margin-bottom: 0.25rem;
+            transition: var(--transition-smooth);
+        }
+
+        .md-drawer__nav-item:hover {
+            background-color: var(--md-surface-variant);
+            color: var(--md-primary);
+        }
+
+        .md-drawer__nav-item.active {
+            background-color: var(--md-primary-tint);
+            color: var(--md-primary);
+            font-weight: 700;
+            border-left: 3px solid var(--md-primary);
+            padding-left: calc(0.875rem - 3px);
+        }
+
+        .md-drawer__footer {
+            padding: 1rem;
+            border-top: 1px solid var(--md-outline-light);
+            font-size: 0.75rem;
+            color: var(--md-on-surface-medium);
+            text-align: center;
+        }
+
+        /* ==========================================================================
+           MAIN CONTENT AREA
+           ========================================================================== */
+        .md-main-content {
+            margin-left: var(--drawer-width);
+            margin-top: var(--top-app-bar-height);
+            flex: 1;
+            padding: 2rem 2.5rem;
+            max-width: 1440px;
+        }
+
+        .md-page-header {
             display: flex;
             justify-content: space-between;
             align-items: center;
             margin-bottom: 2rem;
-            padding-bottom: 1rem;
-            border-bottom: 1px solid var(--border-color);
         }
-        .header h1 { font-size: 1.75rem; color: var(--primary); }
-        .nav-links { display: flex; gap: 1rem; flex-wrap: wrap; margin-bottom: 2rem; }
-        .nav-links a {
-            color: var(--text-main);
-            background: var(--bg-card);
-            padding: 0.5rem 1rem;
-            border-radius: 6px;
-            text-decoration: none;
-            border: 1px solid var(--border-color);
-            transition: all 0.2s;
+
+        .md-page-header__title {
+            font-size: 1.5rem;
+            font-weight: 500;
+            color: var(--md-on-background);
+            letter-spacing: 0.1px;
         }
-        .nav-links a:hover { background: var(--border-color); color: var(--primary); }
-        .card {
-            background: var(--bg-card);
-            border: 1px solid var(--border-color);
-            border-radius: 8px;
+
+        .md-page-header__subtitle {
+            font-size: 0.875rem;
+            color: var(--md-on-surface-medium);
+            margin-top: 0.25rem;
+        }
+
+        /* ==========================================================================
+           MATERIAL 2 CARDS & KPI COMPONENTS
+           ========================================================================== */
+        .md-card {
+            background: var(--md-surface);
+            border: 1px solid var(--md-outline);
+            border-radius: var(--border-radius-base);
+            box-shadow: var(--md-elevation-1);
             padding: 1.5rem;
             margin-bottom: 1.5rem;
+            transition: var(--transition-smooth);
         }
-        .card h2 { font-size: 1.25rem; margin-bottom: 1rem; color: var(--text-main); }
-        table {
+
+        .md-card:hover {
+            box-shadow: var(--md-elevation-2);
+        }
+
+        .md-card__header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 1.25rem;
+            padding-bottom: 0.75rem;
+            border-bottom: 1px solid var(--md-outline-light);
+        }
+
+        .md-card__title {
+            font-size: 1.125rem;
+            font-weight: 500;
+            color: var(--md-on-background);
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .md-kpi-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+            gap: 1.5rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .md-kpi-card {
+            background: var(--md-surface);
+            border: 1px solid var(--md-outline);
+            border-radius: var(--border-radius-base);
+            box-shadow: var(--md-elevation-1);
+            padding: 1.5rem;
+            display: flex;
+            align-items: center;
+            gap: 1.25rem;
+            transition: var(--transition-smooth);
+        }
+
+        .md-kpi-card:hover {
+            transform: translateY(-2px);
+            box-shadow: var(--md-elevation-2);
+        }
+
+        .md-kpi-avatar {
+            width: 52px;
+            height: 52px;
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+        }
+
+        .md-kpi-avatar--primary { background: var(--md-primary-tint); color: var(--md-primary); }
+        .md-kpi-avatar--success { background: var(--md-success-tint); color: var(--md-success); }
+        .md-kpi-avatar--warning { background: var(--md-warning-tint); color: var(--md-warning); }
+        .md-kpi-avatar--info { background: var(--md-info-tint); color: var(--md-info); }
+
+        .md-kpi-content__label {
+            font-size: 0.75rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.8px;
+            color: var(--md-on-surface-medium);
+        }
+
+        .md-kpi-content__value {
+            font-size: 1.75rem;
+            font-weight: 700;
+            color: var(--md-on-background);
+            margin-top: 0.25rem;
+            line-height: 1.1;
+        }
+
+        /* Charts Grid */
+        .md-charts-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(420px, 1fr));
+            gap: 1.5rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .md-chart-container {
+            position: relative;
+            height: 280px;
+            width: 100%;
+        }
+
+        /* ==========================================================================
+           MATERIAL 2 DATA TABLE (mdc-data-table)
+           ========================================================================== */
+        .md-table-responsive {
+            width: 100%;
+            overflow-x: auto;
+            border-radius: var(--border-radius-base);
+            border: 1px solid var(--md-outline);
+            background: var(--md-surface);
+        }
+
+        .md-data-table {
             width: 100%;
             border-collapse: collapse;
-            margin-top: 1rem;
-        }
-        th, td {
+            font-size: 0.875rem;
             text-align: left;
-            padding: 0.75rem 1rem;
-            border-bottom: 1px solid var(--border-color);
         }
-        th { color: var(--text-muted); font-weight: 600; font-size: 0.875rem; text-transform: uppercase; }
-        tr:hover { background-color: rgba(255, 255, 255, 0.02); }
-        .badge {
-            padding: 0.25rem 0.5rem;
+
+        .md-data-table th {
+            background-color: var(--md-surface-variant);
+            color: var(--md-on-surface-medium);
+            font-weight: 700;
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            letter-spacing: 0.6px;
+            padding: 0.875rem 1.25rem;
+            border-bottom: 1px solid var(--md-outline);
+            white-space: nowrap;
+        }
+
+        .md-data-table td {
+            padding: 1rem 1.25rem;
+            border-bottom: 1px solid var(--md-outline-light);
+            color: var(--md-on-surface);
+            vertical-align: middle;
+        }
+
+        .md-data-table tbody tr {
+            transition: background-color 0.15s ease;
+        }
+
+        .md-data-table tbody tr:hover {
+            background-color: rgba(30, 58, 138, 0.02);
+        }
+
+        .md-data-table tbody tr:last-child td {
+            border-bottom: none;
+        }
+
+        /* ==========================================================================
+           MATERIAL 2 BUTTONS & CHIPS
+           ========================================================================== */
+        .md-btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.5rem;
+            font-family: 'Roboto', sans-serif;
+            font-size: 0.875rem;
+            font-weight: 500;
+            text-transform: uppercase;
+            letter-spacing: 0.8px;
+            padding: 0.5rem 1rem;
             border-radius: 4px;
+            text-decoration: none;
+            cursor: pointer;
+            border: none;
+            transition: var(--transition-smooth);
+            height: 36px;
+        }
+
+        .md-btn--contained {
+            background-color: var(--md-primary);
+            color: var(--md-on-primary);
+            box-shadow: var(--md-elevation-1);
+        }
+
+        .md-btn--contained:hover {
+            background-color: var(--md-primary-variant);
+            box-shadow: var(--md-elevation-2);
+        }
+
+        .md-btn--success {
+            background-color: var(--md-success);
+            color: #ffffff;
+        }
+
+        .md-btn--success:hover {
+            background-color: #047857;
+            box-shadow: var(--md-elevation-2);
+        }
+
+        .md-btn--outlined {
+            background-color: transparent;
+            color: var(--md-primary);
+            border: 1px solid var(--md-outline);
+        }
+
+        .md-btn--outlined:hover {
+            background-color: var(--md-primary-tint);
+            border-color: var(--md-primary);
+        }
+
+        .md-btn--text {
+            background-color: transparent;
+            color: var(--md-primary);
+            padding: 0.5rem 0.75rem;
+        }
+
+        .md-btn--text:hover {
+            background-color: var(--md-primary-tint);
+        }
+
+        /* Chips */
+        .md-chip {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.375rem;
+            padding: 0.25rem 0.625rem;
+            border-radius: var(--border-radius-pill);
             font-size: 0.75rem;
             font-weight: 600;
+            line-height: 1;
         }
-        .badge-success { background: rgba(74, 222, 128, 0.1); color: var(--success); }
-        .badge-warning { background: rgba(250, 204, 21, 0.1); color: var(--warning); }
-        .badge-danger { background: rgba(248, 113, 113, 0.1); color: var(--danger); }
+
+        .md-chip--success { background-color: var(--md-success-tint); color: var(--md-success); }
+        .md-chip--warning { background-color: var(--md-warning-tint); color: var(--md-warning); }
+        .md-chip--error { background-color: var(--md-error-tint); color: var(--md-error); }
+        .md-chip--info { background-color: var(--md-info-tint); color: var(--md-info); }
+
+        /* Form Controls Material Outlined */
+        .md-form-control {
+            padding: 0.625rem 0.875rem;
+            font-family: 'Roboto', sans-serif;
+            font-size: 0.875rem;
+            background: var(--md-surface);
+            color: var(--md-on-surface);
+            border: 1px solid var(--md-outline);
+            border-radius: 4px;
+            outline: none;
+            transition: var(--transition-smooth);
+        }
+
+        .md-form-control:focus {
+            border-color: var(--md-primary);
+            box-shadow: 0 0 0 1px var(--md-primary);
+        }
+
+        /* Responsive Mobile */
+        @media (max-width: 960px) {
+            .md-drawer { transform: translateX(-100%); }
+            .md-top-app-bar { left: 0; }
+            .md-main-content { margin-left: 0; padding: 1.5rem 1rem; }
+            .md-charts-grid { grid-template-columns: 1fr; }
+        }
     </style>
 </head>
 <body>
-    <div class="header">
-        <h1>XPTO Investimentos — Inteligência e Relatórios</h1>
-        <a href="/admin/" style="color: var(--primary); text-decoration: none;">← Voltar ao Admin</a>
-    </div>
 
-    <nav class="nav-links">
-        <a href="{% url 'relatorios:painel' %}">Visão Geral</a>
-        <a href="{% url 'relatorios:carteira_cliente' %}">Carteira por Cliente</a>
-        <a href="{% url 'relatorios:investimentos_tipo' %}">Investimentos por Tipo</a>
-        <a href="{% url 'relatorios:evolucao_saldo' %}">Evolução de Saldo</a>
-        <a href="{% url 'relatorios:produtividade' %}">Produtividade de Contatos</a>
-        <a href="{% url 'relatorios:reativacao' %}">Clientes sem Contato</a>
-        <a href="{% url 'relatorios:qualidade_dados' %}">Qualidade Cadastral</a>
-    </nav>
+    <!-- NAVIGATION DRAWER -->
+    <aside class="md-drawer">
+        <div class="md-drawer__header">
+            <div class="md-drawer__logo-badge">X</div>
+            <div class="md-drawer__brand-info">
+                <h2>XPTO Investimentos</h2>
+                <p>Gestão & Inteligência</p>
+            </div>
+        </div>
 
-    <main>
+        <nav class="md-drawer__content">
+            <div class="md-drawer__section-title">Inteligência Executiva</div>
+            <a href="{% url 'relatorios:painel' %}" class="md-drawer__nav-item {% if request.resolver_match.url_name == 'painel' %}active{% endif %}">
+                <span class="material-symbols-outlined">dashboard</span>
+                <span>Painel Geral</span>
+            </a>
+
+            <div class="md-drawer__section-title">Gestão de Carteiras</div>
+            <a href="{% url 'relatorios:carteira_cliente' %}" class="md-drawer__nav-item {% if request.resolver_match.url_name == 'carteira_cliente' %}active{% endif %}">
+                <span class="material-symbols-outlined">account_balance_wallet</span>
+                <span>Carteira do Cliente</span>
+            </a>
+            <a href="{% url 'relatorios:investimentos_tipo' %}" class="md-drawer__nav-item {% if request.resolver_match.url_name == 'investimentos_tipo' %}active{% endif %}">
+                <span class="material-symbols-outlined">pie_chart</span>
+                <span>Investimentos por Tipo</span>
+            </a>
+            <a href="{% url 'relatorios:evolucao_saldo' %}" class="md-drawer__nav-item {% if request.resolver_match.url_name == 'evolucao_saldo' %}active{% endif %}">
+                <span class="material-symbols-outlined">trending_up</span>
+                <span>Evolução de Saldos</span>
+            </a>
+
+            <div class="md-drawer__section-title">Relacionamento & Atendimento</div>
+            <a href="{% url 'relatorios:reativacao' %}" class="md-drawer__nav-item {% if request.resolver_match.url_name == 'reativacao' %}active{% endif %}">
+                <span class="material-symbols-outlined">history_toggle_off</span>
+                <span>Ações de Reativação</span>
+            </a>
+            <a href="{% url 'relatorios:produtividade' %}" class="md-drawer__nav-item {% if request.resolver_match.url_name == 'produtividade' %}active{% endif %}">
+                <span class="material-symbols-outlined">badge</span>
+                <span>Produtividade da Equipe</span>
+            </a>
+            <a href="{% url 'relatorios:qualidade_dados' %}" class="md-drawer__nav-item {% if request.resolver_match.url_name == 'qualidade_dados' %}active{% endif %}">
+                <span class="material-symbols-outlined">verified</span>
+                <span>Qualidade Cadastral</span>
+            </a>
+
+            <div class="md-drawer__section-title">Sistemas & API</div>
+            <a href="/api/v1/" target="_blank" class="md-drawer__nav-item">
+                <span class="material-symbols-outlined">api</span>
+                <span>API REST v1</span>
+            </a>
+            <a href="/admin/" class="md-drawer__nav-item">
+                <span class="material-symbols-outlined">admin_panel_settings</span>
+                <span>Painel Admin</span>
+            </a>
+        </nav>
+
+        <div class="md-drawer__footer">
+            XPTO FinTech v1.0 • Material Design 2
+        </div>
+    </aside>
+
+    <!-- TOP APP BAR -->
+    <header class="md-top-app-bar">
+        <div class="md-top-app-bar__title">
+            <span class="material-symbols-outlined" style="color: var(--md-primary);">analytics</span>
+            <span>Portal de Inteligência & Relatórios</span>
+        </div>
+
+        <div class="md-top-app-bar__actions">
+            <a href="/api/v1/" target="_blank" class="md-btn md-btn--outlined" style="height: 32px; font-size: 0.75rem;">
+                <span class="material-symbols-outlined" style="font-size: 16px;">code</span>
+                API v1
+            </a>
+            <a href="/admin/" class="md-btn md-btn--contained" style="height: 32px; font-size: 0.75rem;">
+                <span class="material-symbols-outlined" style="font-size: 16px;">settings</span>
+                Admin
+            </a>
+        </div>
+    </header>
+
+    <!-- MAIN CANVAS -->
+    <main class="md-main-content">
         {% block content %}{% endblock %}
     </main>
+
 </body>
 </html>
