@@ -8,19 +8,17 @@ ALLOWED_HOSTS = config('ALLOWED_HOSTS', default='localhost,127.0.0.1,0.0.0.0', c
 
 import sys
 
-# Database configuration (PostgreSQL por padrão, SQLite durante testes locais ou se DB_ENGINE=sqlite)
-DB_ENGINE = config(
-    'DB_ENGINE',
-    default='sqlite' if ('pytest' in sys.modules or 'pytest' in sys.argv[0]) else 'django.db.backends.postgresql'
-)
+# Database configuration (SQLite por padrão no ambiente de desenvolvimento/CI; Postgres via env DB_ENGINE=postgresql)
+DB_ENGINE = config('DB_ENGINE', default='sqlite')
 
-if DB_ENGINE == 'sqlite':
+if DB_ENGINE == 'sqlite' or 'sqlite' in DB_ENGINE:
     DATABASES = {
         'default': {
             'ENGINE': 'django.db.backends.sqlite3',
             'NAME': BASE_DIR / 'db.sqlite3',
         }
     }
+
 else:
     DATABASES = {
         'default': {
