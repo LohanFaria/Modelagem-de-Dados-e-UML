@@ -1,7 +1,17 @@
 {
   "testCommand": "pytest",
   "reporter": "exitcode",
-
+  "ignoreGlobs": [
+    "**/__pycache__/**",
+    "**/*.pyc",
+    ".pytest_cache/**",
+    ".venv/**",
+    "node_modules/**",
+    ".git/**",
+    ".spec/**",
+    "*.sqlite3",
+    "*.log"
+  ],
   "testGlobs": [
     "tests/**",
     "apps/**/tests.py",
@@ -15,4 +25,3 @@
     "manage.py"
   ]
 }
-

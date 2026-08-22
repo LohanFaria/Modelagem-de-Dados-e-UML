@@ -13,6 +13,8 @@ jobs:
     env:
       DB_ENGINE: sqlite
       DJANGO_SETTINGS_MODULE: config.settings.dev
+      PYTHONDONTWRITEBYTECODE: 1
+      PYTHONUNBUFFERED: 1
 
     steps:
       - name: Checkout repository
@@ -42,8 +44,8 @@ jobs:
 
       - name: Run onp-spec Verify
         run: |
-          npx -y @onovoprogramador/onp-spec verify xpto-investimentos-fullstack-django
+          node .agents/skills/onp-spec-driven/scripts/onp-spec.mjs verify xpto-investimentos-fullstack-django
 
       - name: Run onp-spec Audit CI Gate
         run: |
-          npx -y @onovoprogramador/onp-spec audit --ci
+          node .agents/skills/onp-spec-driven/scripts/onp-spec.mjs audit --ci
