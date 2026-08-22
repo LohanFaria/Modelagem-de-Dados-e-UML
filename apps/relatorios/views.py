@@ -6,6 +6,8 @@ from django.http import HttpResponse
 from django.contrib.auth.decorators import login_required, user_passes_test
 from django.core.exceptions import PermissionDenied
 from apps.clientes.models import Cliente
+from apps.investimentos.models import Investimento
+from apps.relacionamento.models import Contato
 from . import queries
 
 
@@ -22,10 +24,21 @@ def eh_gestor_ou_auditor(user):
 def painel_relatorios(request):
     qualidade = queries.painel_qualidade_dados()
     investimentos = queries.total_investido_por_tipo()
+    produtividade = queries.produtividade_contatos()
+    clientes_inativos = queries.clientes_inativos(dias=30)
+    recentes_investimentos = Investimento.objects.select_related("cliente", "tipo").order_by("-data_aplicacao")[:5]
+    recentes_contatos = Contato.objects.select_related("cliente", "funcionario", "forma", "assunto").order_by("-data_contato")[:5]
+
     return render(request, "relatorios/painel.html", {
         "qualidade": qualidade,
         "investimentos": investimentos,
+        "produtividade": produtividade,
+        "clientes_inativos": clientes_inativos,
+        "recentes_investimentos": recentes_investimentos,
+        "recentes_contatos": recentes_contatos,
     })
+
+
 
 
 @login_required
