@@ -37,16 +37,13 @@ jobs:
           python3 -m venv .venv
           .venv/bin/pip install --upgrade pip
           .venv/bin/pip install -r requirements.txt
+          echo "$GITHUB_WORKSPACE/.venv/bin" >> $GITHUB_PATH
+          echo "VIRTUAL_ENV=$GITHUB_WORKSPACE/.venv" >> $GITHUB_ENV
 
       - name: Run onp-spec Verify
         run: |
-          source .venv/bin/activate
           node .agents/skills/onp-spec-driven/scripts/onp-spec.mjs verify xpto-investimentos-fullstack-django
 
-      - name: Run onp-spec Audit
+      - name: Run onp-spec Audit CI Gate
         run: |
-          source .venv/bin/activate
-          echo "=== AUDIT JSON OUTPUT ==="
-          node .agents/skills/onp-spec-driven/scripts/onp-spec.mjs audit --json
-          echo "=== AUDIT TERMINAL OUTPUT ==="
           node .agents/skills/onp-spec-driven/scripts/onp-spec.mjs audit --ci
