@@ -33,12 +33,14 @@ jobs:
         with:
           node-version: "20"
 
-      - name: Install dependencies and link binaries
+      - name: Install dependencies
         run: |
           python -m pip install --upgrade pip
           pip install -r requirements.txt
-          sudo ln -sf $(which pytest) /usr/local/bin/pytest
-          sudo ln -sf $(which python3) /usr/local/bin/python3
+
+      - name: Run Pytest Suite
+        run: |
+          pytest -v
 
       - name: Run onp-spec Verify
         run: |
