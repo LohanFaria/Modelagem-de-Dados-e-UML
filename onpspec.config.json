@@ -1,5 +1,5 @@
 {
-  "testCommand": ".venv/bin/pytest",
+  "testCommand": "pytest",
   "reporter": "exitcode",
   "ignoreGlobs": [
     "**/__pycache__/**",

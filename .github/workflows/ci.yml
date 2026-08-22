@@ -46,7 +46,12 @@ jobs:
 
       - name: Run onp-spec Verify
         run: |
-          node .agents/skills/onp-spec-driven/scripts/onp-spec.mjs verify xpto-investimentos-fullstack-django
+          node .agents/skills/onp-spec-driven/scripts/onp-spec.mjs verify xpto-investimentos-fullstack-django || {
+            echo "==== JSON PROOF CONTENT ===="
+            cat .spec/verification/xpto-investimentos-fullstack-django.json
+            echo "==== JSON PROOF END ===="
+            exit 1
+          }
 
       - name: Run onp-spec Audit CI Gate
         run: |
