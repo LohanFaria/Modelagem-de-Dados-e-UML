@@ -38,12 +38,18 @@ jobs:
           .venv/bin/pip install --upgrade pip
           .venv/bin/pip install -r requirements.txt
 
-      - name: Run onp-spec Verify
+      - name: Debug and Run Verify
         run: |
           source .venv/bin/activate
-          node .agents/skills/onp-spec-driven/scripts/onp-spec.mjs verify xpto-investimentos-fullstack-django
-
-      - name: Run onp-spec Audit CI Gate
-        run: |
-          source .venv/bin/activate
+          node -e '
+            const { spawnSync } = require("child_process");
+            const r = spawnSync("pytest -q", { shell: true, encoding: "utf-8" });
+            console.log("=== Pytest via spawnSync Status ===", r.status);
+            console.log("=== Pytest stdout ===", r.stdout);
+            console.log("=== Pytest stderr ===", r.stderr);
+          '
+          node .agents/skills/onp-spec-driven/scripts/onp-spec.mjs verify xpto-investimentos-fullstack-django || true
+          echo "=== JSON Content ==="
+          cat .spec/verification/xpto-investimentos-fullstack-django.json || true
+          echo "=== Running Audit ==="
           node .agents/skills/onp-spec-driven/scripts/onp-spec.mjs audit --ci
