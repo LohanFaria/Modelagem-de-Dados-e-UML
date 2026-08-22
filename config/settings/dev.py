@@ -16,6 +16,9 @@ if DB_ENGINE == 'sqlite' or 'sqlite' in DB_ENGINE:
         'default': {
             'ENGINE': 'django.db.backends.sqlite3',
             'NAME': BASE_DIR / 'db.sqlite3',
+            'TEST': {
+                'NAME': None,  # Forçar SQLite in-memory para testes isolados e sem locks de arquivo
+            }
         }
     }
 
@@ -28,5 +31,8 @@ else:
             'PASSWORD': config('DB_PASSWORD', default='xpto_password_secret'),
             'HOST': config('DB_HOST', default='localhost'),
             'PORT': config('DB_PORT', default='5432'),
+            'TEST': {
+                'NAME': 'test_xpto',
+            }
         }
     }
