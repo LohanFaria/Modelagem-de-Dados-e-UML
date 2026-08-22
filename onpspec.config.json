@@ -1,7 +1,6 @@
 {
-  "testCommand": "python -m pytest",
+  "testCommand": "pytest",
   "reporter": "exitcode",
-
   "ignoreGlobs": [
     "**/__pycache__/**",
     "**/*.pyc",
