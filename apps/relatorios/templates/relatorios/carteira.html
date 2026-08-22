@@ -1,0 +1,73 @@
+{% extends "relatorios/base.html" %}
+
+{% block title %}Carteira do Cliente{% endblock %}
+
+{% block content %}
+<div class="card">
+    <h2>Selecionar Cliente</h2>
+    <form method="GET" action="">
+        <select name="cliente_id" onchange="this.form.submit()" style="padding: 0.5rem; background: var(--bg-main); color: var(--text-main); border: 1px solid var(--border-color); border-radius: 4px;">
+            <option value="">-- Escolha um cliente --</option>
+            {% for c in clientes_lista %}
+            <option value="{{ c.id }}" {% if c.id == cliente_selecionado %}selected{% endif %}>{{ c.nome }} ({{ c.cpf }})</option>
+            {% endfor %}
+        </select>
+    </form>
+</div>
+
+{% if dados_carteira %}
+<div class="card">
+    <h2>Patrimônio Total: R$ {{ dados_carteira.patrimonio_total|floatformat:2 }}</h2>
+    <p>Saldo em Contas: <b>R$ {{ dados_carteira.saldo_total|floatformat:2 }}</b> | Total em Aplicações: <b>R$ {{ dados_carteira.investimento_total|floatformat:2 }}</b></p>
+    
+    <h3 style="margin-top: 1.5rem; font-size: 1.1rem; color: var(--primary);">Contas Bancárias e Saldo Atual</h3>
+    <table>
+        <thead>
+            <tr><th>Banco</th><th>Agência</th><th>Conta</th><th>Saldo Atual (R$)</th><th>Data Referência</th></tr>
+        </thead>
+        <tbody>
+            {% for c in dados_carteira.contas %}
+            <tr>
+                <td>{{ c.banco }}</td><td>{{ c.agencia }}</td><td>{{ c.conta }}</td>
+                <td>R$ {{ c.saldo_atual|floatformat:2 }}</td><td>{{ c.data_saldo|date:"d/m/Y"|default:"—" }}</td>
+            </tr>
+            {% empty %}
+            <tr><td colspan="5">Nenhuma conta cadastrada.</td></tr>
+            {% endfor %}
+        </tbody>
+    </table>
+
+    <h3 style="margin-top: 1.5rem; font-size: 1.1rem; color: var(--primary);">Posição de Investimentos</h3>
+    <table>
+        <thead>
+            <tr><th>Tipo de Ativo</th><th>Valor Aplicado (R$)</th><th>Data da Aplicação</th></tr>
+        </thead>
+        <tbody>
+            {% for inv in dados_carteira.investimentos %}
+            <tr>
+                <td>{{ inv.tipo }}</td><td>R$ {{ inv.valor|floatformat:2 }}</td><td>{{ inv.data_aplicacao|date:"d/m/Y"|default:"—" }}</td>
+            </tr>
+            {% empty %}
+            <tr><td colspan="3">Nenhum investimento cadastrado.</td></tr>
+            {% endfor %}
+        </tbody>
+    </table>
+
+    <h3 style="margin-top: 1.5rem; font-size: 1.1rem; color: var(--primary);">Histórico Recente de Contatos</h3>
+    <table>
+        <thead>
+            <tr><th>Data</th><th>Funcionário</th><th>Forma</th><th>Assunto</th><th>Observações</th></tr>
+        </thead>
+        <tbody>
+            {% for ct in dados_carteira.ultimos_contatos %}
+            <tr>
+                <td>{{ ct.data|date:"d/m/Y" }}</td><td>{{ ct.funcionario }}</td><td>{{ ct.forma }}</td><td>{{ ct.assunto }}</td><td>{{ ct.observacao }}</td>
+            </tr>
+            {% empty %}
+            <tr><td colspan="5">Nenhum contato registrado.</td></tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</div>
+{% endif %}
+{% endblock %}

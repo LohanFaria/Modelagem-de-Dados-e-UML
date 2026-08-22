@@ -1,0 +1,743 @@
+{
+  "schema": 1,
+  "sinais": {
+    "ARQUIVO_INEXISTENTE::xpto-investimentos-fullstack-django::T-001": {
+      "codigo": "ARQUIVO_INEXISTENTE",
+      "feature": "xpto-investimentos-fullstack-django",
+      "ref": "T-001",
+      "ocorrencias": 23,
+      "primeiraVez": "2026-08-22T01:06:39.779Z",
+      "ultimaVez": "2026-08-22T01:07:39.124Z",
+      "gitRev": null
+    },
+    "AC_SEM_TESTE::xpto-investimentos-fullstack-django::AC-001": {
+      "codigo": "AC_SEM_TESTE",
+      "feature": "xpto-investimentos-fullstack-django",
+      "ref": "AC-001",
+      "ocorrencias": 2,
+      "primeiraVez": "2026-08-22T01:06:39.781Z",
+      "ultimaVez": "2026-08-22T01:07:20.350Z",
+      "gitRev": null
+    },
+    "GLOB_SEM_ARQUIVOS::—::P-002": {
+      "codigo": "GLOB_SEM_ARQUIVOS",
+      "feature": "—",
+      "ref": "P-002",
+      "ocorrencias": 3,
+      "primeiraVez": "2026-08-22T01:06:39.781Z",
+      "ultimaVez": "2026-08-22T01:07:39.124Z",
+      "gitRev": null
+    },
+    "ARQUIVO_INEXISTENTE::xpto-investimentos-fullstack-django::T-002": {
+      "codigo": "ARQUIVO_INEXISTENTE",
+      "feature": "xpto-investimentos-fullstack-django",
+      "ref": "T-002",
+      "ocorrencias": 16,
+      "primeiraVez": "2026-08-22T01:07:20.350Z",
+      "ultimaVez": "2026-08-22T01:07:39.124Z",
+      "gitRev": null
+    },
+    "ARQUIVO_INEXISTENTE::xpto-investimentos-fullstack-django::T-003": {
+      "codigo": "ARQUIVO_INEXISTENTE",
+      "feature": "xpto-investimentos-fullstack-django",
+      "ref": "T-003",
+      "ocorrencias": 8,
+      "primeiraVez": "2026-08-22T01:07:20.350Z",
+      "ultimaVez": "2026-08-22T01:07:39.124Z",
+      "gitRev": null
+    },
+    "ARQUIVO_INEXISTENTE::xpto-investimentos-fullstack-django::T-004": {
+      "codigo": "ARQUIVO_INEXISTENTE",
+      "feature": "xpto-investimentos-fullstack-django",
+      "ref": "T-004",
+      "ocorrencias": 6,
+      "primeiraVez": "2026-08-22T01:07:20.350Z",
+      "ultimaVez": "2026-08-22T01:07:39.124Z",
+      "gitRev": null
+    },
+    "ARQUIVO_INEXISTENTE::xpto-investimentos-fullstack-django::T-005": {
+      "codigo": "ARQUIVO_INEXISTENTE",
+      "feature": "xpto-investimentos-fullstack-django",
+      "ref": "T-005",
+      "ocorrencias": 8,
+      "primeiraVez": "2026-08-22T01:07:20.350Z",
+      "ultimaVez": "2026-08-22T01:07:39.124Z",
+      "gitRev": null
+    },
+    "ARQUIVO_INEXISTENTE::xpto-investimentos-fullstack-django::T-006": {
+      "codigo": "ARQUIVO_INEXISTENTE",
+      "feature": "xpto-investimentos-fullstack-django",
+      "ref": "T-006",
+      "ocorrencias": 12,
+      "primeiraVez": "2026-08-22T01:07:20.350Z",
+      "ultimaVez": "2026-08-22T01:07:39.124Z",
+      "gitRev": null
+    },
+    "ARQUIVO_INEXISTENTE::xpto-investimentos-fullstack-django::T-007": {
+      "codigo": "ARQUIVO_INEXISTENTE",
+      "feature": "xpto-investimentos-fullstack-django",
+      "ref": "T-007",
+      "ocorrencias": 10,
+      "primeiraVez": "2026-08-22T01:07:20.350Z",
+      "ultimaVez": "2026-08-22T01:07:39.124Z",
+      "gitRev": null
+    },
+    "AC_SEM_TESTE::xpto-investimentos-fullstack-django::AC-002": {
+      "codigo": "AC_SEM_TESTE",
+      "feature": "xpto-investimentos-fullstack-django",
+      "ref": "AC-002",
+      "ocorrencias": 1,
+      "primeiraVez": "2026-08-22T01:07:20.350Z",
+      "ultimaVez": "2026-08-22T01:07:20.350Z",
+      "gitRev": null
+    },
+    "AC_SEM_TESTE::xpto-investimentos-fullstack-django::AC-003": {
+      "codigo": "AC_SEM_TESTE",
+      "feature": "xpto-investimentos-fullstack-django",
+      "ref": "AC-003",
+      "ocorrencias": 1,
+      "primeiraVez": "2026-08-22T01:07:20.350Z",
+      "ultimaVez": "2026-08-22T01:07:20.350Z",
+      "gitRev": null
+    },
+    "AC_SEM_TESTE::xpto-investimentos-fullstack-django::AC-004": {
+      "codigo": "AC_SEM_TESTE",
+      "feature": "xpto-investimentos-fullstack-django",
+      "ref": "AC-004",
+      "ocorrencias": 1,
+      "primeiraVez": "2026-08-22T01:07:20.350Z",
+      "ultimaVez": "2026-08-22T01:07:20.350Z",
+      "gitRev": null
+    },
+    "AC_SEM_TESTE::xpto-investimentos-fullstack-django::AC-005": {
+      "codigo": "AC_SEM_TESTE",
+      "feature": "xpto-investimentos-fullstack-django",
+      "ref": "AC-005",
+      "ocorrencias": 1,
+      "primeiraVez": "2026-08-22T01:07:20.350Z",
+      "ultimaVez": "2026-08-22T01:07:20.350Z",
+      "gitRev": null
+    },
+    "AC_SEM_TESTE::xpto-investimentos-fullstack-django::AC-006": {
+      "codigo": "AC_SEM_TESTE",
+      "feature": "xpto-investimentos-fullstack-django",
+      "ref": "AC-006",
+      "ocorrencias": 1,
+      "primeiraVez": "2026-08-22T01:07:20.350Z",
+      "ultimaVez": "2026-08-22T01:07:20.350Z",
+      "gitRev": null
+    },
+    "AC_SEM_TESTE::xpto-investimentos-fullstack-django::AC-007": {
+      "codigo": "AC_SEM_TESTE",
+      "feature": "xpto-investimentos-fullstack-django",
+      "ref": "AC-007",
+      "ocorrencias": 1,
+      "primeiraVez": "2026-08-22T01:07:20.350Z",
+      "ultimaVez": "2026-08-22T01:07:20.350Z",
+      "gitRev": null
+    },
+    "AC_SEM_TESTE::xpto-investimentos-fullstack-django::AC-008": {
+      "codigo": "AC_SEM_TESTE",
+      "feature": "xpto-investimentos-fullstack-django",
+      "ref": "AC-008",
+      "ocorrencias": 1,
+      "primeiraVez": "2026-08-22T01:07:20.350Z",
+      "ultimaVez": "2026-08-22T01:07:20.350Z",
+      "gitRev": null
+    },
+    "AC_SEM_TESTE::xpto-investimentos-fullstack-django::AC-009": {
+      "codigo": "AC_SEM_TESTE",
+      "feature": "xpto-investimentos-fullstack-django",
+      "ref": "AC-009",
+      "ocorrencias": 1,
+      "primeiraVez": "2026-08-22T01:07:20.350Z",
+      "ultimaVez": "2026-08-22T01:07:20.350Z",
+      "gitRev": null
+    },
+    "AC_SEM_TESTE::xpto-investimentos-fullstack-django::AC-010": {
+      "codigo": "AC_SEM_TESTE",
+      "feature": "xpto-investimentos-fullstack-django",
+      "ref": "AC-010",
+      "ocorrencias": 1,
+      "primeiraVez": "2026-08-22T01:07:20.351Z",
+      "ultimaVez": "2026-08-22T01:07:20.351Z",
+      "gitRev": null
+    },
+    "AC_SEM_TESTE::xpto-investimentos-fullstack-django::AC-011": {
+      "codigo": "AC_SEM_TESTE",
+      "feature": "xpto-investimentos-fullstack-django",
+      "ref": "AC-011",
+      "ocorrencias": 1,
+      "primeiraVez": "2026-08-22T01:07:20.351Z",
+      "ultimaVez": "2026-08-22T01:07:20.351Z",
+      "gitRev": null
+    },
+    "AC_SEM_TESTE::xpto-investimentos-fullstack-django::AC-012": {
+      "codigo": "AC_SEM_TESTE",
+      "feature": "xpto-investimentos-fullstack-django",
+      "ref": "AC-012",
+      "ocorrencias": 1,
+      "primeiraVez": "2026-08-22T01:07:20.351Z",
+      "ultimaVez": "2026-08-22T01:07:20.351Z",
+      "gitRev": null
+    },
+    "AC_SEM_TESTE::xpto-investimentos-fullstack-django::AC-013": {
+      "codigo": "AC_SEM_TESTE",
+      "feature": "xpto-investimentos-fullstack-django",
+      "ref": "AC-013",
+      "ocorrencias": 1,
+      "primeiraVez": "2026-08-22T01:07:20.351Z",
+      "ultimaVez": "2026-08-22T01:07:20.351Z",
+      "gitRev": null
+    },
+    "AC_SEM_TESTE::xpto-investimentos-fullstack-django::AC-014": {
+      "codigo": "AC_SEM_TESTE",
+      "feature": "xpto-investimentos-fullstack-django",
+      "ref": "AC-014",
+      "ocorrencias": 1,
+      "primeiraVez": "2026-08-22T01:07:20.351Z",
+      "ultimaVez": "2026-08-22T01:07:20.351Z",
+      "gitRev": null
+    },
+    "AC_SEM_TESTE::xpto-investimentos-fullstack-django::AC-015": {
+      "codigo": "AC_SEM_TESTE",
+      "feature": "xpto-investimentos-fullstack-django",
+      "ref": "AC-015",
+      "ocorrencias": 1,
+      "primeiraVez": "2026-08-22T01:07:20.351Z",
+      "ultimaVez": "2026-08-22T01:07:20.351Z",
+      "gitRev": null
+    },
+    "AC_SEM_TESTE::xpto-investimentos-fullstack-django::AC-016": {
+      "codigo": "AC_SEM_TESTE",
+      "feature": "xpto-investimentos-fullstack-django",
+      "ref": "AC-016",
+      "ocorrencias": 1,
+      "primeiraVez": "2026-08-22T01:07:20.351Z",
+      "ultimaVez": "2026-08-22T01:07:20.351Z",
+      "gitRev": null
+    },
+    "AC_SEM_PROVA::xpto-investimentos-fullstack-django::AC-001": {
+      "codigo": "AC_SEM_PROVA",
+      "feature": "xpto-investimentos-fullstack-django",
+      "ref": "AC-001",
+      "ocorrencias": 4,
+      "primeiraVez": "2026-08-22T01:07:39.124Z",
+      "ultimaVez": "2026-08-22T01:22:54.707Z",
+      "gitRev": null
+    },
+    "AC_SEM_PROVA::xpto-investimentos-fullstack-django::AC-002": {
+      "codigo": "AC_SEM_PROVA",
+      "feature": "xpto-investimentos-fullstack-django",
+      "ref": "AC-002",
+      "ocorrencias": 4,
+      "primeiraVez": "2026-08-22T01:07:39.124Z",
+      "ultimaVez": "2026-08-22T01:22:54.711Z",
+      "gitRev": null
+    },
+    "AC_SEM_PROVA::xpto-investimentos-fullstack-django::AC-003": {
+      "codigo": "AC_SEM_PROVA",
+      "feature": "xpto-investimentos-fullstack-django",
+      "ref": "AC-003",
+      "ocorrencias": 4,
+      "primeiraVez": "2026-08-22T01:07:39.124Z",
+      "ultimaVez": "2026-08-22T01:22:54.711Z",
+      "gitRev": null
+    },
+    "AC_SEM_PROVA::xpto-investimentos-fullstack-django::AC-004": {
+      "codigo": "AC_SEM_PROVA",
+      "feature": "xpto-investimentos-fullstack-django",
+      "ref": "AC-004",
+      "ocorrencias": 4,
+      "primeiraVez": "2026-08-22T01:07:39.124Z",
+      "ultimaVez": "2026-08-22T01:22:54.711Z",
+      "gitRev": null
+    },
+    "AC_SEM_PROVA::xpto-investimentos-fullstack-django::AC-005": {
+      "codigo": "AC_SEM_PROVA",
+      "feature": "xpto-investimentos-fullstack-django",
+      "ref": "AC-005",
+      "ocorrencias": 4,
+      "primeiraVez": "2026-08-22T01:07:39.124Z",
+      "ultimaVez": "2026-08-22T01:22:54.711Z",
+      "gitRev": null
+    },
+    "AC_SEM_PROVA::xpto-investimentos-fullstack-django::AC-006": {
+      "codigo": "AC_SEM_PROVA",
+      "feature": "xpto-investimentos-fullstack-django",
+      "ref": "AC-006",
+      "ocorrencias": 4,
+      "primeiraVez": "2026-08-22T01:07:39.124Z",
+      "ultimaVez": "2026-08-22T01:22:54.711Z",
+      "gitRev": null
+    },
+    "AC_SEM_PROVA::xpto-investimentos-fullstack-django::AC-007": {
+      "codigo": "AC_SEM_PROVA",
+      "feature": "xpto-investimentos-fullstack-django",
+      "ref": "AC-007",
+      "ocorrencias": 4,
+      "primeiraVez": "2026-08-22T01:07:39.124Z",
+      "ultimaVez": "2026-08-22T01:22:54.711Z",
+      "gitRev": null
+    },
+    "AC_SEM_PROVA::xpto-investimentos-fullstack-django::AC-008": {
+      "codigo": "AC_SEM_PROVA",
+      "feature": "xpto-investimentos-fullstack-django",
+      "ref": "AC-008",
+      "ocorrencias": 4,
+      "primeiraVez": "2026-08-22T01:07:39.124Z",
+      "ultimaVez": "2026-08-22T01:22:54.711Z",
+      "gitRev": null
+    },
+    "AC_SEM_PROVA::xpto-investimentos-fullstack-django::AC-009": {
+      "codigo": "AC_SEM_PROVA",
+      "feature": "xpto-investimentos-fullstack-django",
+      "ref": "AC-009",
+      "ocorrencias": 4,
+      "primeiraVez": "2026-08-22T01:07:39.124Z",
+      "ultimaVez": "2026-08-22T01:22:54.711Z",
+      "gitRev": null
+    },
+    "AC_SEM_PROVA::xpto-investimentos-fullstack-django::AC-010": {
+      "codigo": "AC_SEM_PROVA",
+      "feature": "xpto-investimentos-fullstack-django",
+      "ref": "AC-010",
+      "ocorrencias": 4,
+      "primeiraVez": "2026-08-22T01:07:39.124Z",
+      "ultimaVez": "2026-08-22T01:22:54.711Z",
+      "gitRev": null
+    },
+    "AC_SEM_PROVA::xpto-investimentos-fullstack-django::AC-011": {
+      "codigo": "AC_SEM_PROVA",
+      "feature": "xpto-investimentos-fullstack-django",
+      "ref": "AC-011",
+      "ocorrencias": 4,
+      "primeiraVez": "2026-08-22T01:07:39.124Z",
+      "ultimaVez": "2026-08-22T01:22:54.711Z",
+      "gitRev": null
+    },
+    "AC_SEM_PROVA::xpto-investimentos-fullstack-django::AC-012": {
+      "codigo": "AC_SEM_PROVA",
+      "feature": "xpto-investimentos-fullstack-django",
+      "ref": "AC-012",
+      "ocorrencias": 4,
+      "primeiraVez": "2026-08-22T01:07:39.124Z",
+      "ultimaVez": "2026-08-22T01:22:54.711Z",
+      "gitRev": null
+    },
+    "AC_SEM_PROVA::xpto-investimentos-fullstack-django::AC-013": {
+      "codigo": "AC_SEM_PROVA",
+      "feature": "xpto-investimentos-fullstack-django",
+      "ref": "AC-013",
+      "ocorrencias": 4,
+      "primeiraVez": "2026-08-22T01:07:39.124Z",
+      "ultimaVez": "2026-08-22T01:22:54.711Z",
+      "gitRev": null
+    },
+    "AC_SEM_PROVA::xpto-investimentos-fullstack-django::AC-014": {
+      "codigo": "AC_SEM_PROVA",
+      "feature": "xpto-investimentos-fullstack-django",
+      "ref": "AC-014",
+      "ocorrencias": 4,
+      "primeiraVez": "2026-08-22T01:07:39.124Z",
+      "ultimaVez": "2026-08-22T01:22:54.711Z",
+      "gitRev": null
+    },
+    "AC_SEM_PROVA::xpto-investimentos-fullstack-django::AC-015": {
+      "codigo": "AC_SEM_PROVA",
+      "feature": "xpto-investimentos-fullstack-django",
+      "ref": "AC-015",
+      "ocorrencias": 4,
+      "primeiraVez": "2026-08-22T01:07:39.124Z",
+      "ultimaVez": "2026-08-22T01:22:54.711Z",
+      "gitRev": null
+    },
+    "AC_SEM_PROVA::xpto-investimentos-fullstack-django::AC-016": {
+      "codigo": "AC_SEM_PROVA",
+      "feature": "xpto-investimentos-fullstack-django",
+      "ref": "AC-016",
+      "ocorrencias": 4,
+      "primeiraVez": "2026-08-22T01:07:39.124Z",
+      "ultimaVez": "2026-08-22T01:22:54.711Z",
+      "gitRev": null
+    },
+    "ARQUIVO_ORFAO::—::apps/__init__.py": {
+      "codigo": "ARQUIVO_ORFAO",
+      "feature": "—",
+      "ref": "apps/__init__.py",
+      "ocorrencias": 1,
+      "primeiraVez": "2026-08-22T01:14:24.307Z",
+      "ultimaVez": "2026-08-22T01:14:24.307Z",
+      "gitRev": null
+    },
+    "ARQUIVO_ORFAO::—::apps/clientes/__init__.py": {
+      "codigo": "ARQUIVO_ORFAO",
+      "feature": "—",
+      "ref": "apps/clientes/__init__.py",
+      "ocorrencias": 1,
+      "primeiraVez": "2026-08-22T01:14:24.307Z",
+      "ultimaVez": "2026-08-22T01:14:24.307Z",
+      "gitRev": null
+    },
+    "ARQUIVO_ORFAO::—::apps/clientes/apps.py": {
+      "codigo": "ARQUIVO_ORFAO",
+      "feature": "—",
+      "ref": "apps/clientes/apps.py",
+      "ocorrencias": 1,
+      "primeiraVez": "2026-08-22T01:14:24.307Z",
+      "ultimaVez": "2026-08-22T01:14:24.307Z",
+      "gitRev": null
+    },
+    "ARQUIVO_ORFAO::—::apps/importacao/__init__.py": {
+      "codigo": "ARQUIVO_ORFAO",
+      "feature": "—",
+      "ref": "apps/importacao/__init__.py",
+      "ocorrencias": 1,
+      "primeiraVez": "2026-08-22T01:14:24.307Z",
+      "ultimaVez": "2026-08-22T01:14:24.307Z",
+      "gitRev": null
+    },
+    "ARQUIVO_ORFAO::—::apps/importacao/apps.py": {
+      "codigo": "ARQUIVO_ORFAO",
+      "feature": "—",
+      "ref": "apps/importacao/apps.py",
+      "ocorrencias": 1,
+      "primeiraVez": "2026-08-22T01:14:24.307Z",
+      "ultimaVez": "2026-08-22T01:14:24.307Z",
+      "gitRev": null
+    },
+    "ARQUIVO_ORFAO::—::apps/investimentos/__init__.py": {
+      "codigo": "ARQUIVO_ORFAO",
+      "feature": "—",
+      "ref": "apps/investimentos/__init__.py",
+      "ocorrencias": 1,
+      "primeiraVez": "2026-08-22T01:14:24.307Z",
+      "ultimaVez": "2026-08-22T01:14:24.307Z",
+      "gitRev": null
+    },
+    "ARQUIVO_ORFAO::—::apps/investimentos/apps.py": {
+      "codigo": "ARQUIVO_ORFAO",
+      "feature": "—",
+      "ref": "apps/investimentos/apps.py",
+      "ocorrencias": 1,
+      "primeiraVez": "2026-08-22T01:14:24.307Z",
+      "ultimaVez": "2026-08-22T01:14:24.307Z",
+      "gitRev": null
+    },
+    "ARQUIVO_ORFAO::—::apps/relacionamento/__init__.py": {
+      "codigo": "ARQUIVO_ORFAO",
+      "feature": "—",
+      "ref": "apps/relacionamento/__init__.py",
+      "ocorrencias": 1,
+      "primeiraVez": "2026-08-22T01:14:24.307Z",
+      "ultimaVez": "2026-08-22T01:14:24.307Z",
+      "gitRev": null
+    },
+    "ARQUIVO_ORFAO::—::apps/relacionamento/apps.py": {
+      "codigo": "ARQUIVO_ORFAO",
+      "feature": "—",
+      "ref": "apps/relacionamento/apps.py",
+      "ocorrencias": 1,
+      "primeiraVez": "2026-08-22T01:14:24.307Z",
+      "ultimaVez": "2026-08-22T01:14:24.307Z",
+      "gitRev": null
+    },
+    "ARQUIVO_ORFAO::—::apps/relatorios/__init__.py": {
+      "codigo": "ARQUIVO_ORFAO",
+      "feature": "—",
+      "ref": "apps/relatorios/__init__.py",
+      "ocorrencias": 1,
+      "primeiraVez": "2026-08-22T01:14:24.307Z",
+      "ultimaVez": "2026-08-22T01:14:24.307Z",
+      "gitRev": null
+    },
+    "ARQUIVO_ORFAO::—::apps/relatorios/apps.py": {
+      "codigo": "ARQUIVO_ORFAO",
+      "feature": "—",
+      "ref": "apps/relatorios/apps.py",
+      "ocorrencias": 1,
+      "primeiraVez": "2026-08-22T01:14:24.307Z",
+      "ultimaVez": "2026-08-22T01:14:24.307Z",
+      "gitRev": null
+    },
+    "ARQUIVO_ORFAO::—::apps/relatorios/templates/relatorios/carteira.html": {
+      "codigo": "ARQUIVO_ORFAO",
+      "feature": "—",
+      "ref": "apps/relatorios/templates/relatorios/carteira.html",
+      "ocorrencias": 1,
+      "primeiraVez": "2026-08-22T01:14:24.307Z",
+      "ultimaVez": "2026-08-22T01:14:24.307Z",
+      "gitRev": null
+    },
+    "ARQUIVO_ORFAO::—::apps/relatorios/templates/relatorios/evolucao_saldo.html": {
+      "codigo": "ARQUIVO_ORFAO",
+      "feature": "—",
+      "ref": "apps/relatorios/templates/relatorios/evolucao_saldo.html",
+      "ocorrencias": 1,
+      "primeiraVez": "2026-08-22T01:14:24.307Z",
+      "ultimaVez": "2026-08-22T01:14:24.307Z",
+      "gitRev": null
+    },
+    "ARQUIVO_ORFAO::—::apps/relatorios/templates/relatorios/investimentos_tipo.html": {
+      "codigo": "ARQUIVO_ORFAO",
+      "feature": "—",
+      "ref": "apps/relatorios/templates/relatorios/investimentos_tipo.html",
+      "ocorrencias": 1,
+      "primeiraVez": "2026-08-22T01:14:24.307Z",
+      "ultimaVez": "2026-08-22T01:14:24.307Z",
+      "gitRev": null
+    },
+    "ARQUIVO_ORFAO::—::apps/relatorios/templates/relatorios/painel.html": {
+      "codigo": "ARQUIVO_ORFAO",
+      "feature": "—",
+      "ref": "apps/relatorios/templates/relatorios/painel.html",
+      "ocorrencias": 1,
+      "primeiraVez": "2026-08-22T01:14:24.307Z",
+      "ultimaVez": "2026-08-22T01:14:24.307Z",
+      "gitRev": null
+    },
+    "ARQUIVO_ORFAO::—::apps/relatorios/templates/relatorios/produtividade.html": {
+      "codigo": "ARQUIVO_ORFAO",
+      "feature": "—",
+      "ref": "apps/relatorios/templates/relatorios/produtividade.html",
+      "ocorrencias": 1,
+      "primeiraVez": "2026-08-22T01:14:24.307Z",
+      "ultimaVez": "2026-08-22T01:14:24.307Z",
+      "gitRev": null
+    },
+    "ARQUIVO_ORFAO::—::apps/relatorios/templates/relatorios/qualidade_dados.html": {
+      "codigo": "ARQUIVO_ORFAO",
+      "feature": "—",
+      "ref": "apps/relatorios/templates/relatorios/qualidade_dados.html",
+      "ocorrencias": 1,
+      "primeiraVez": "2026-08-22T01:14:24.307Z",
+      "ultimaVez": "2026-08-22T01:14:24.307Z",
+      "gitRev": null
+    },
+    "ARQUIVO_ORFAO::—::apps/relatorios/templates/relatorios/reativacao.html": {
+      "codigo": "ARQUIVO_ORFAO",
+      "feature": "—",
+      "ref": "apps/relatorios/templates/relatorios/reativacao.html",
+      "ocorrencias": 1,
+      "primeiraVez": "2026-08-22T01:14:24.307Z",
+      "ultimaVez": "2026-08-22T01:14:24.307Z",
+      "gitRev": null
+    },
+    "ARQUIVO_ORFAO::—::config/__init__.py": {
+      "codigo": "ARQUIVO_ORFAO",
+      "feature": "—",
+      "ref": "config/__init__.py",
+      "ocorrencias": 1,
+      "primeiraVez": "2026-08-22T01:14:24.307Z",
+      "ultimaVez": "2026-08-22T01:14:24.307Z",
+      "gitRev": null
+    },
+    "ARQUIVO_ORFAO::—::config/settings/__init__.py": {
+      "codigo": "ARQUIVO_ORFAO",
+      "feature": "—",
+      "ref": "config/settings/__init__.py",
+      "ocorrencias": 1,
+      "primeiraVez": "2026-08-22T01:14:24.307Z",
+      "ultimaVez": "2026-08-22T01:14:24.307Z",
+      "gitRev": null
+    },
+    "ARQUIVO_ORFAO::—::config/wsgi.py": {
+      "codigo": "ARQUIVO_ORFAO",
+      "feature": "—",
+      "ref": "config/wsgi.py",
+      "ocorrencias": 1,
+      "primeiraVez": "2026-08-22T01:14:24.307Z",
+      "ultimaVez": "2026-08-22T01:14:24.307Z",
+      "gitRev": null
+    },
+    "PRINCIPIO_VIOLADO::—::P-002": {
+      "codigo": "PRINCIPIO_VIOLADO",
+      "feature": "—",
+      "ref": "P-002",
+      "ocorrencias": 6,
+      "primeiraVez": "2026-08-22T01:14:24.307Z",
+      "ultimaVez": "2026-08-22T01:14:24.307Z",
+      "gitRev": null
+    },
+    "PROVA_FRACA::xpto-investimentos-fullstack-django::AC-001": {
+      "codigo": "PROVA_FRACA",
+      "feature": "xpto-investimentos-fullstack-django",
+      "ref": "AC-001",
+      "ocorrencias": 5,
+      "primeiraVez": "2026-08-22T01:38:21.474Z",
+      "ultimaVez": "2026-08-22T02:42:10.801Z",
+      "gitRev": null
+    },
+    "PROVA_FRACA::xpto-investimentos-fullstack-django::AC-002": {
+      "codigo": "PROVA_FRACA",
+      "feature": "xpto-investimentos-fullstack-django",
+      "ref": "AC-002",
+      "ocorrencias": 5,
+      "primeiraVez": "2026-08-22T01:38:21.476Z",
+      "ultimaVez": "2026-08-22T02:42:10.803Z",
+      "gitRev": null
+    },
+    "PROVA_FRACA::xpto-investimentos-fullstack-django::AC-003": {
+      "codigo": "PROVA_FRACA",
+      "feature": "xpto-investimentos-fullstack-django",
+      "ref": "AC-003",
+      "ocorrencias": 5,
+      "primeiraVez": "2026-08-22T01:38:21.476Z",
+      "ultimaVez": "2026-08-22T02:42:10.803Z",
+      "gitRev": null
+    },
+    "PROVA_FRACA::xpto-investimentos-fullstack-django::AC-004": {
+      "codigo": "PROVA_FRACA",
+      "feature": "xpto-investimentos-fullstack-django",
+      "ref": "AC-004",
+      "ocorrencias": 5,
+      "primeiraVez": "2026-08-22T01:38:21.476Z",
+      "ultimaVez": "2026-08-22T02:42:10.803Z",
+      "gitRev": null
+    },
+    "PROVA_FRACA::xpto-investimentos-fullstack-django::AC-005": {
+      "codigo": "PROVA_FRACA",
+      "feature": "xpto-investimentos-fullstack-django",
+      "ref": "AC-005",
+      "ocorrencias": 5,
+      "primeiraVez": "2026-08-22T01:38:21.476Z",
+      "ultimaVez": "2026-08-22T02:42:10.803Z",
+      "gitRev": null
+    },
+    "PROVA_FRACA::xpto-investimentos-fullstack-django::AC-006": {
+      "codigo": "PROVA_FRACA",
+      "feature": "xpto-investimentos-fullstack-django",
+      "ref": "AC-006",
+      "ocorrencias": 5,
+      "primeiraVez": "2026-08-22T01:38:21.476Z",
+      "ultimaVez": "2026-08-22T02:42:10.803Z",
+      "gitRev": null
+    },
+    "PROVA_FRACA::xpto-investimentos-fullstack-django::AC-007": {
+      "codigo": "PROVA_FRACA",
+      "feature": "xpto-investimentos-fullstack-django",
+      "ref": "AC-007",
+      "ocorrencias": 5,
+      "primeiraVez": "2026-08-22T01:38:21.476Z",
+      "ultimaVez": "2026-08-22T02:42:10.803Z",
+      "gitRev": null
+    },
+    "PROVA_FRACA::xpto-investimentos-fullstack-django::AC-008": {
+      "codigo": "PROVA_FRACA",
+      "feature": "xpto-investimentos-fullstack-django",
+      "ref": "AC-008",
+      "ocorrencias": 5,
+      "primeiraVez": "2026-08-22T01:38:21.476Z",
+      "ultimaVez": "2026-08-22T02:42:10.803Z",
+      "gitRev": null
+    },
+    "PROVA_FRACA::xpto-investimentos-fullstack-django::AC-009": {
+      "codigo": "PROVA_FRACA",
+      "feature": "xpto-investimentos-fullstack-django",
+      "ref": "AC-009",
+      "ocorrencias": 5,
+      "primeiraVez": "2026-08-22T01:38:21.476Z",
+      "ultimaVez": "2026-08-22T02:42:10.803Z",
+      "gitRev": null
+    },
+    "PROVA_FRACA::xpto-investimentos-fullstack-django::AC-010": {
+      "codigo": "PROVA_FRACA",
+      "feature": "xpto-investimentos-fullstack-django",
+      "ref": "AC-010",
+      "ocorrencias": 5,
+      "primeiraVez": "2026-08-22T01:38:21.476Z",
+      "ultimaVez": "2026-08-22T02:42:10.803Z",
+      "gitRev": null
+    },
+    "PROVA_FRACA::xpto-investimentos-fullstack-django::AC-011": {
+      "codigo": "PROVA_FRACA",
+      "feature": "xpto-investimentos-fullstack-django",
+      "ref": "AC-011",
+      "ocorrencias": 5,
+      "primeiraVez": "2026-08-22T01:38:21.476Z",
+      "ultimaVez": "2026-08-22T02:42:10.803Z",
+      "gitRev": null
+    },
+    "PROVA_FRACA::xpto-investimentos-fullstack-django::AC-012": {
+      "codigo": "PROVA_FRACA",
+      "feature": "xpto-investimentos-fullstack-django",
+      "ref": "AC-012",
+      "ocorrencias": 5,
+      "primeiraVez": "2026-08-22T01:38:21.476Z",
+      "ultimaVez": "2026-08-22T02:42:10.803Z",
+      "gitRev": null
+    },
+    "PROVA_FRACA::xpto-investimentos-fullstack-django::AC-013": {
+      "codigo": "PROVA_FRACA",
+      "feature": "xpto-investimentos-fullstack-django",
+      "ref": "AC-013",
+      "ocorrencias": 5,
+      "primeiraVez": "2026-08-22T01:38:21.476Z",
+      "ultimaVez": "2026-08-22T02:42:10.803Z",
+      "gitRev": null
+    },
+    "PROVA_FRACA::xpto-investimentos-fullstack-django::AC-014": {
+      "codigo": "PROVA_FRACA",
+      "feature": "xpto-investimentos-fullstack-django",
+      "ref": "AC-014",
+      "ocorrencias": 5,
+      "primeiraVez": "2026-08-22T01:38:21.476Z",
+      "ultimaVez": "2026-08-22T02:42:10.803Z",
+      "gitRev": null
+    },
+    "PROVA_FRACA::xpto-investimentos-fullstack-django::AC-015": {
+      "codigo": "PROVA_FRACA",
+      "feature": "xpto-investimentos-fullstack-django",
+      "ref": "AC-015",
+      "ocorrencias": 5,
+      "primeiraVez": "2026-08-22T01:38:21.476Z",
+      "ultimaVez": "2026-08-22T02:42:10.803Z",
+      "gitRev": null
+    },
+    "PROVA_FRACA::xpto-investimentos-fullstack-django::AC-016": {
+      "codigo": "PROVA_FRACA",
+      "feature": "xpto-investimentos-fullstack-django",
+      "ref": "AC-016",
+      "ocorrencias": 5,
+      "primeiraVez": "2026-08-22T01:38:21.476Z",
+      "ultimaVez": "2026-08-22T02:42:10.803Z",
+      "gitRev": null
+    },
+    "VERIFY_OBSOLETO::xpto-investimentos-fullstack-django::—": {
+      "codigo": "VERIFY_OBSOLETO",
+      "feature": "xpto-investimentos-fullstack-django",
+      "ref": "—",
+      "ocorrencias": 1,
+      "primeiraVez": "2026-08-22T01:40:05.343Z",
+      "ultimaVez": "2026-08-22T01:40:05.343Z",
+      "gitRev": null
+    },
+    "ARQUIVO_ORFAO::—::apps/clientes/migrations/__init__.py": {
+      "codigo": "ARQUIVO_ORFAO",
+      "feature": "—",
+      "ref": "apps/clientes/migrations/__init__.py",
+      "ocorrencias": 1,
+      "primeiraVez": "2026-08-22T01:40:05.343Z",
+      "ultimaVez": "2026-08-22T01:40:05.343Z",
+      "gitRev": null
+    },
+    "ARQUIVO_ORFAO::—::apps/investimentos/migrations/__init__.py": {
+      "codigo": "ARQUIVO_ORFAO",
+      "feature": "—",
+      "ref": "apps/investimentos/migrations/__init__.py",
+      "ocorrencias": 1,
+      "primeiraVez": "2026-08-22T01:40:05.343Z",
+      "ultimaVez": "2026-08-22T01:40:05.343Z",
+      "gitRev": null
+    },
+    "ARQUIVO_ORFAO::—::apps/relacionamento/migrations/__init__.py": {
+      "codigo": "ARQUIVO_ORFAO",
+      "feature": "—",
+      "ref": "apps/relacionamento/migrations/__init__.py",
+      "ocorrencias": 1,
+      "primeiraVez": "2026-08-22T01:40:05.343Z",
+      "ultimaVez": "2026-08-22T01:40:05.343Z",
+      "gitRev": null
+    }
+  }
+}

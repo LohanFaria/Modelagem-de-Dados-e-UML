@@ -1,0 +1,43 @@
+name: CI & onp-spec Audit
+
+on:
+  push:
+    branches: [ main, master ]
+  pull_request:
+    branches: [ main, master ]
+
+jobs:
+  test-and-audit:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Set up Python 3.12
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+          cache: "pip"
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install -r requirements.txt
+
+      - name: Run Pytest Suite
+        run: |
+          pytest -v
+
+      - name: Run onp-spec Verify
+        run: |
+          npx @onovoprogramador/onp-spec verify xpto-investimentos-fullstack-django
+
+      - name: Run onp-spec Audit CI Gate
+        run: |
+          npx @onovoprogramador/onp-spec audit --ci

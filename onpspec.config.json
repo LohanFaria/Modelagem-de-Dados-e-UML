@@ -1,0 +1,17 @@
+{
+  "testCommand": ".venv/bin/pytest",
+  "reporter": "exitcode",
+  "testGlobs": [
+    "tests/**",
+    "apps/**/tests.py",
+    "apps/**/tests/*.py",
+    "apps/**/tests/**/*.py",
+    "apps/**/test_*.py"
+  ],
+  "srcGlobs": [
+    "apps/**",
+    "config/**",
+    "manage.py"
+  ]
+}
+

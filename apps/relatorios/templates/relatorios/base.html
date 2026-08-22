@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}Relatórios Gerenciais{% endblock %} — XPTO Investimentos</title>
+    <style>
+        :root {
+            --bg-main: #0f172a;
+            --bg-card: #1e293b;
+            --border-color: #334155;
+            --text-main: #f8fafc;
+            --text-muted: #94a3b8;
+            --primary: #38bdf8;
+            --primary-hover: #0284c7;
+            --success: #4ade80;
+            --warning: #facc15;
+            --danger: #f87171;
+        }
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            background-color: var(--bg-main);
+            color: var(--text-main);
+            line-height: 1.5;
+            padding: 2rem;
+        }
+        .header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 2rem;
+            padding-bottom: 1rem;
+            border-bottom: 1px solid var(--border-color);
+        }
+        .header h1 { font-size: 1.75rem; color: var(--primary); }
+        .nav-links { display: flex; gap: 1rem; flex-wrap: wrap; margin-bottom: 2rem; }
+        .nav-links a {
+            color: var(--text-main);
+            background: var(--bg-card);
+            padding: 0.5rem 1rem;
+            border-radius: 6px;
+            text-decoration: none;
+            border: 1px solid var(--border-color);
+            transition: all 0.2s;
+        }
+        .nav-links a:hover { background: var(--border-color); color: var(--primary); }
+        .card {
+            background: var(--bg-card);
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            padding: 1.5rem;
+            margin-bottom: 1.5rem;
+        }
+        .card h2 { font-size: 1.25rem; margin-bottom: 1rem; color: var(--text-main); }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 1rem;
+        }
+        th, td {
+            text-align: left;
+            padding: 0.75rem 1rem;
+            border-bottom: 1px solid var(--border-color);
+        }
+        th { color: var(--text-muted); font-weight: 600; font-size: 0.875rem; text-transform: uppercase; }
+        tr:hover { background-color: rgba(255, 255, 255, 0.02); }
+        .badge {
+            padding: 0.25rem 0.5rem;
+            border-radius: 4px;
+            font-size: 0.75rem;
+            font-weight: 600;
+        }
+        .badge-success { background: rgba(74, 222, 128, 0.1); color: var(--success); }
+        .badge-warning { background: rgba(250, 204, 21, 0.1); color: var(--warning); }
+        .badge-danger { background: rgba(248, 113, 113, 0.1); color: var(--danger); }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <h1>XPTO Investimentos — Inteligência e Relatórios</h1>
+        <a href="/admin/" style="color: var(--primary); text-decoration: none;">← Voltar ao Admin</a>
+    </div>
+
+    <nav class="nav-links">
+        <a href="{% url 'relatorios:painel' %}">Visão Geral</a>
+        <a href="{% url 'relatorios:carteira_cliente' %}">Carteira por Cliente</a>
+        <a href="{% url 'relatorios:investimentos_tipo' %}">Investimentos por Tipo</a>
+        <a href="{% url 'relatorios:evolucao_saldo' %}">Evolução de Saldo</a>
+        <a href="{% url 'relatorios:produtividade' %}">Produtividade de Contatos</a>
+        <a href="{% url 'relatorios:reativacao' %}">Clientes sem Contato</a>
+        <a href="{% url 'relatorios:qualidade_dados' %}">Qualidade Cadastral</a>
+    </nav>
+
+    <main>
+        {% block content %}{% endblock %}
+    </main>
+</body>
+</html>

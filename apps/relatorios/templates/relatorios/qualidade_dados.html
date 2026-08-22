@@ -1,0 +1,41 @@
+{% extends "relatorios/base.html" %}
+
+{% block title %}Qualidade Cadastral{% endblock %}
+
+{% block content %}
+<div class="card">
+    <h2>Diagnóstico de Integridade Cadastral</h2>
+    <table>
+        <thead>
+            <tr><th>Indicador de Qualidade</th><th>Contagem</th><th>Status</th></tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>Clientes sem Telefone</td>
+                <td>{{ dados.sem_telefone }}</td>
+                <td>{% if dados.sem_telefone > 0 %}<span class="badge badge-warning">Atenção</span>{% else %}<span class="badge badge-success">OK</span>{% endif %}</td>
+            </tr>
+            <tr>
+                <td>Clientes sem E-mail</td>
+                <td>{{ dados.sem_email }}</td>
+                <td>{% if dados.sem_email > 0 %}<span class="badge badge-warning">Atenção</span>{% else %}<span class="badge badge-success">OK</span>{% endif %}</td>
+            </tr>
+            <tr>
+                <td>Clientes sem Conta Bancária</td>
+                <td>{{ dados.sem_conta }}</td>
+                <td>{% if dados.sem_conta > 0 %}<span class="badge badge-warning">Atenção</span>{% else %}<span class="badge badge-success">OK</span>{% endif %}</td>
+            </tr>
+            <tr>
+                <td>Contatos em Quarentena Pendentes</td>
+                <td>{{ dados.quarentena_pendente }}</td>
+                <td>{% if dados.quarentena_pendente > 0 %}<span class="badge badge-danger">Crítico</span>{% else %}<span class="badge badge-success">Limpo</span>{% endif %}</td>
+            </tr>
+            <tr>
+                <td>Contatos em Quarentena Já Resolvidos</td>
+                <td>{{ dados.quarentena_resolvida }}</td>
+                <td><span class="badge badge-success">Resolvido</span></td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+{% endblock %}

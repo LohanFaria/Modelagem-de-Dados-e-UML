@@ -1,0 +1,25 @@
+{% extends "relatorios/base.html" %}
+
+{% block title %}Investimentos por Tipo{% endblock %}
+
+{% block content %}
+<div class="card">
+    <h2>Consolidação de Ativos por Tipo</h2>
+    <p>Patrimônio sob Custódia: <b>R$ {{ dados.total_geral|floatformat:2 }}</b></p>
+    <table>
+        <thead>
+            <tr><th>Tipo</th><th>Total Alocado (R$)</th><th>Quantidade</th><th>Percentual (%)</th></tr>
+        </thead>
+        <tbody>
+            {% for item in dados.itens %}
+            <tr>
+                <td>{{ item.tipo }}</td>
+                <td>R$ {{ item.total|floatformat:2 }}</td>
+                <td>{{ item.qtd }}</td>
+                <td>{{ item.percentual }}%</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</div>
+{% endblock %}

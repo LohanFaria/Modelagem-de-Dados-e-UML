@@ -1,0 +1,39 @@
+{% extends "relatorios/base.html" %}
+
+{% block title %}Painel Geral{% endblock %}
+
+{% block content %}
+<div class="card">
+    <h2>Resumo de Qualidade de Dados</h2>
+    <p>Total de Clientes Cadastrados: <b>{{ qualidade.total_clientes }}</b></p>
+    <p>Clientes sem Telefone: <b>{{ qualidade.sem_telefone }}</b> | Clientes sem E-mail: <b>{{ qualidade.sem_email }}</b></p>
+    <p>Contatos em Quarentena Pendentes: <span class="badge badge-warning">{{ qualidade.quarentena_pendente }}</span></p>
+</div>
+
+<div class="card">
+    <h2>Total Investido por Categoria</h2>
+    <p>Volume Total sob Gestão: <b>R$ {{ investimentos.total_geral|floatformat:2 }}</b></p>
+    <table>
+        <thead>
+            <tr>
+                <th>Tipo</th>
+                <th>Volume (R$)</th>
+                <th>Aplicações</th>
+                <th>Representatividade (%)</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for item in investimentos.itens %}
+            <tr>
+                <td>{{ item.tipo }}</td>
+                <td>R$ {{ item.total|floatformat:2 }}</td>
+                <td>{{ item.qtd }}</td>
+                <td>{{ item.percentual }}%</td>
+            </tr>
+            {% empty %}
+            <tr><td colspan="4">Nenhum investimento registrado.</td></tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</div>
+{% endblock %}

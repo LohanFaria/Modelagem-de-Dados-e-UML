@@ -1,0 +1,27 @@
+{% extends "relatorios/base.html" %}
+
+{% block title %}Evolução Histórica de Saldos{% endblock %}
+
+{% block content %}
+<div class="card">
+    <h2>Série Temporal de Saldos</h2>
+    <table>
+        <thead>
+            <tr><th>Data</th><th>Cliente</th><th>Banco</th><th>Conta</th><th>Saldo (R$)</th></tr>
+        </thead>
+        <tbody>
+            {% for s in saldos %}
+            <tr>
+                <td>{{ s.data_saldo|date:"d/m/Y" }}</td>
+                <td>{{ s.conta.cliente.nome }}</td>
+                <td>{{ s.conta.banco }}</td>
+                <td>{{ s.conta.conta }}</td>
+                <td>R$ {{ s.saldo|floatformat:2 }}</td>
+            </tr>
+            {% empty %}
+            <tr><td colspan="5">Nenhum histórico de saldo registrado.</td></tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</div>
+{% endblock %}

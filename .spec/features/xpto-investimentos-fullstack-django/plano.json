@@ -1,0 +1,218 @@
+{
+  "runId": "Modelagem de Dados e UML-xpto-investimentos-fullstack-django-mt3ohy5f",
+  "feature": "xpto-investimentos-fullstack-django",
+  "agent": "antigravity",
+  "modo": "paralelo",
+  "paralelizar": null,
+  "modeloForcado": null,
+  "esforcoForcado": null,
+  "geradoEm": "2026-08-22 01:07",
+  "branchTrabalho": "spec/xpto-investimentos-fullstack-django",
+  "baseDir": ".spec/features/xpto-investimentos-fullstack-django",
+  "specDir": ".spec",
+  "repoName": "Modelagem de Dados e UML",
+  "logsDir": "../onp-worktrees/Modelagem de Dados e UML-xpto-investimentos-fullstack-django-logs",
+  "ondas": [
+    [
+      "faixa-1",
+      "faixa-2",
+      "faixa-3"
+    ],
+    [
+      "faixa-4",
+      "faixa-5",
+      "faixa-6"
+    ],
+    [
+      "faixa-7"
+    ]
+  ],
+  "faixas": [
+    {
+      "id": "faixa-1",
+      "branch": "spec/xpto-investimentos-fullstack-django-faixa-1",
+      "worktree": "../onp-worktrees/Modelagem de Dados e UML-xpto-investimentos-fullstack-django-faixa-1",
+      "tarefas": [
+        {
+          "id": "T-001",
+          "titulo": "Fundação e ambiente de desenvolvimento Docker e Django",
+          "modelo": "claude-sonnet-5",
+          "esforco": "medium",
+          "arquivos": [
+            "Dockerfile",
+            "docker-compose.yml",
+            "requirements.txt",
+            "manage.py",
+            "config/settings/base.py",
+            "config/settings/dev.py",
+            "config/settings/prod.py",
+            "config/urls.py",
+            "CLAUDE.md",
+            ".env.example",
+            ".gitignore"
+          ],
+          "refs": [
+            "US-001",
+            "AC-001"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "faixa-2",
+      "branch": "spec/xpto-investimentos-fullstack-django-faixa-2",
+      "worktree": "../onp-worktrees/Modelagem de Dados e UML-xpto-investimentos-fullstack-django-faixa-2",
+      "tarefas": [
+        {
+          "id": "T-002",
+          "titulo": "Modelagem de dados em 3FN, validadores de CPF e constraints",
+          "modelo": "claude-sonnet-5",
+          "esforco": "medium",
+          "arquivos": [
+            "apps/clientes/models.py",
+            "apps/clientes/validators.py",
+            "apps/investimentos/models.py",
+            "apps/relacionamento/models.py",
+            "apps/clientes/tests/test_models.py",
+            "apps/clientes/tests/test_validators.py",
+            "apps/investimentos/tests/test_models.py",
+            "apps/relacionamento/tests/test_models.py"
+          ],
+          "refs": [
+            "US-002",
+            "AC-002",
+            "AC-003",
+            "AC-004",
+            "AC-005"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "faixa-3",
+      "branch": "spec/xpto-investimentos-fullstack-django-faixa-3",
+      "worktree": "../onp-worktrees/Modelagem de Dados e UML-xpto-investimentos-fullstack-django-faixa-3",
+      "tarefas": [
+        {
+          "id": "T-003",
+          "titulo": "Interface administrativa customizada com inlines e listagens consolidadas",
+          "modelo": "claude-sonnet-5",
+          "esforco": "medium",
+          "arquivos": [
+            "apps/clientes/admin.py",
+            "apps/investimentos/admin.py",
+            "apps/relacionamento/admin.py",
+            "apps/clientes/tests/test_admin.py"
+          ],
+          "refs": [
+            "US-003",
+            "AC-006",
+            "AC-007"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "faixa-4",
+      "branch": "spec/xpto-investimentos-fullstack-django-faixa-4",
+      "worktree": "../onp-worktrees/Modelagem de Dados e UML-xpto-investimentos-fullstack-django-faixa-4",
+      "tarefas": [
+        {
+          "id": "T-004",
+          "titulo": "Controle de acesso por grupos, mascaramento de CPF e auditoria",
+          "modelo": "claude-sonnet-5",
+          "esforco": "medium",
+          "arquivos": [
+            "apps/clientes/permissions.py",
+            "apps/clientes/migrations/0002_create_groups.py",
+            "apps/clientes/tests/test_security.py"
+          ],
+          "refs": [
+            "US-004",
+            "AC-008",
+            "AC-009"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "faixa-5",
+      "branch": "spec/xpto-investimentos-fullstack-django-faixa-5",
+      "worktree": "../onp-worktrees/Modelagem de Dados e UML-xpto-investimentos-fullstack-django-faixa-5",
+      "tarefas": [
+        {
+          "id": "T-005",
+          "titulo": "Módulo de importação ETL das planilhas legadas com deduplicação e quarentena",
+          "modelo": "claude-sonnet-5",
+          "esforco": "medium",
+          "arquivos": [
+            "apps/importacao/parsers.py",
+            "apps/importacao/services.py",
+            "apps/importacao/management/commands/importar_planilhas.py",
+            "apps/importacao/tests/test_importacao.py"
+          ],
+          "refs": [
+            "US-005",
+            "AC-010",
+            "AC-011",
+            "AC-012"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "faixa-6",
+      "branch": "spec/xpto-investimentos-fullstack-django-faixa-6",
+      "worktree": "../onp-worktrees/Modelagem de Dados e UML-xpto-investimentos-fullstack-django-faixa-6",
+      "tarefas": [
+        {
+          "id": "T-006",
+          "titulo": "Consultas analíticas e views de relatórios gerenciais",
+          "modelo": "claude-sonnet-5",
+          "esforco": "medium",
+          "arquivos": [
+            "apps/relatorios/queries.py",
+            "apps/relatorios/views.py",
+            "apps/relatorios/urls.py",
+            "apps/relatorios/templates/relatorios/base.html",
+            "apps/relatorios/tests/test_queries.py",
+            "apps/relatorios/tests/test_views.py"
+          ],
+          "refs": [
+            "US-006",
+            "AC-013",
+            "AC-014"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "faixa-7",
+      "branch": "spec/xpto-investimentos-fullstack-django-faixa-7",
+      "worktree": "../onp-worktrees/Modelagem de Dados e UML-xpto-investimentos-fullstack-django-faixa-7",
+      "tarefas": [
+        {
+          "id": "T-007",
+          "titulo": "Factories, suíte de testes de integração e seed de demonstração",
+          "modelo": "claude-sonnet-5",
+          "esforco": "medium",
+          "arquivos": [
+            "apps/clientes/factories.py",
+            "apps/investimentos/factories.py",
+            "apps/relacionamento/factories.py",
+            "apps/clientes/management/commands/seed_demo.py",
+            "tests/test_integration.py"
+          ],
+          "refs": [
+            "US-007",
+            "AC-015",
+            "AC-016"
+          ]
+        }
+      ]
+    }
+  ],
+  "sequenciais": [],
+  "concluidas": [],
+  "avisos": []
+}

@@ -1,0 +1,42 @@
+{% extends "relatorios/base.html" %}
+
+{% block title %}Produtividade da Equipe{% endblock %}
+
+{% block content %}
+<div class="card">
+    <h2>Atendimentos por Funcionário</h2>
+    <p>Total de Interações Registradas: <b>{{ dados.total_atendimentos }}</b></p>
+    <table>
+        <thead>
+            <tr><th>Funcionário</th><th>Volume de Atendimentos</th></tr>
+        </thead>
+        <tbody>
+            {% for item in dados.por_funcionario %}
+            <tr>
+                <td>{{ item.funcionario__nome }}</td>
+                <td><b>{{ item.total }}</b></td>
+            </tr>
+            {% empty %}
+            <tr><td colspan="2">Nenhum atendimento registrado.</td></tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</div>
+
+<div class="card">
+    <h2>Distribuição por Assunto / Produto</h2>
+    <table>
+        <thead>
+            <tr><th>Assunto</th><th>Total de Contatos</th></tr>
+        </thead>
+        <tbody>
+            {% for item in dados.por_assunto %}
+            <tr>
+                <td>{{ item.assunto__nome }}</td>
+                <td><b>{{ item.total }}</b></td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</div>
+{% endblock %}
