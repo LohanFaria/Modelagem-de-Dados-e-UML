@@ -18,5 +18,7 @@ class InvestimentoAdmin(admin.ModelAdmin):
     list_select_related = ("cliente", "tipo")
 
     def valor_investido_display(self, obj):
-        return format_html("<b>R$ {:,.2f}</b>", obj.valor_investido)
+        val = obj.valor_investido
+        return format_html("<b>R$ {}</b>", f"{val:,.2f}")
     valor_investido_display.short_description = "Valor Investido"
+
