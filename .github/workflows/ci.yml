@@ -40,6 +40,10 @@ jobs:
           echo "$GITHUB_WORKSPACE/.venv/bin" >> $GITHUB_PATH
           echo "VIRTUAL_ENV=$GITHUB_WORKSPACE/.venv" >> $GITHUB_ENV
 
+      - name: Run Pytest Direct
+        run: |
+          .venv/bin/pytest -v
+
       - name: Run onp-spec Verify
         run: |
           node .agents/skills/onp-spec-driven/scripts/onp-spec.mjs verify xpto-investimentos-fullstack-django
