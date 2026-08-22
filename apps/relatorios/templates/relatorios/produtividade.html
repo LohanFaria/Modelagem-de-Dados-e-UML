@@ -3,40 +3,110 @@
 {% block title %}Produtividade da Equipe{% endblock %}
 
 {% block content %}
-<div class="card">
-    <h2>Atendimentos por Funcionário</h2>
-    <p>Total de Interações Registradas: <b>{{ dados.total_atendimentos }}</b></p>
-    <table>
-        <thead>
-            <tr><th>Funcionário</th><th>Volume de Atendimentos</th></tr>
-        </thead>
-        <tbody>
-            {% for item in dados.por_funcionario %}
-            <tr>
-                <td>{{ item.funcionario__nome }}</td>
-                <td><b>{{ item.total }}</b></td>
-            </tr>
-            {% empty %}
-            <tr><td colspan="2">Nenhum atendimento registrado.</td></tr>
-            {% endfor %}
-        </tbody>
-    </table>
+<div class="charts-grid">
+    <div class="card">
+        <h2>Atendimentos por Consultor</h2>
+        <div class="chart-container">
+            <canvas id="produtividadeFuncChart"></canvas>
+        </div>
+    </div>
+    <div class="card">
+        <h2>Demandas por Assunto / Produto</h2>
+        <div class="chart-container">
+            <canvas id="produtividadeAssuntoChart"></canvas>
+        </div>
+    </div>
 </div>
 
-<div class="card">
-    <h2>Distribuição por Assunto / Produto</h2>
-    <table>
-        <thead>
-            <tr><th>Assunto</th><th>Total de Contatos</th></tr>
-        </thead>
-        <tbody>
-            {% for item in dados.por_assunto %}
-            <tr>
-                <td>{{ item.assunto__nome }}</td>
-                <td><b>{{ item.total }}</b></td>
-            </tr>
-            {% endfor %}
-        </tbody>
-    </table>
+<div class="charts-grid">
+    <div class="card">
+        <h2>Detalhamento por Funcionário</h2>
+        <p style="margin-bottom: 1rem;">Total de Interações: <b style="color: var(--primary);">{{ dados.total_atendimentos }}</b></p>
+        <table>
+            <thead>
+                <tr><th>Funcionário</th><th>Volume de Atendimentos</th></tr>
+            </thead>
+            <tbody>
+                {% for item in dados.por_funcionario %}
+                <tr>
+                    <td><b>{{ item.funcionario__nome }}</b></td>
+                    <td><span class="badge badge-success">{{ item.total }} contatos</span></td>
+                </tr>
+                {% empty %}
+                <tr><td colspan="2">Nenhum atendimento registrado.</td></tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+
+    <div class="card">
+        <h2>Distribuição por Assunto</h2>
+        <table>
+            <thead>
+                <tr><th>Assunto / Produto</th><th>Total de Contatos</th></tr>
+            </thead>
+            <tbody>
+                {% for item in dados.por_assunto %}
+                <tr>
+                    <td><b>{{ item.assunto__nome }}</b></td>
+                    <td><span class="badge badge-warning">{{ item.total }} contatos</span></td>
+                </tr>
+                {% empty %}
+                <tr><td colspan="2">Nenhum assunto registrado.</td></tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
 </div>
+
+<script>
+    const funcLabels = [{% for item in dados.por_funcionario %}"{{ item.funcionario__nome }}",{% endfor %}];
+    const funcData = [{% for item in dados.por_funcionario %}{{ item.total }},{% endfor %}];
+
+    const assuntoLabels = [{% for item in dados.por_assunto %}"{{ item.assunto__nome }}",{% endfor %}];
+    const assuntoData = [{% for item in dados.por_assunto %}{{ item.total }},{% endfor %}];
+
+    // Funcionário Bar Chart
+    new Chart(document.getElementById('produtividadeFuncChart'), {
+        type: 'bar',
+        data: {
+            labels: funcLabels,
+            datasets: [{
+                label: 'Atendimentos',
+                data: funcData,
+                backgroundColor: '#38bdf8',
+                borderRadius: 4,
+            }]
+        },
+        options: {
+            responsive: true,
+            maintainAspectRatio: false,
+            plugins: { legend: { display: false } },
+            scales: {
+                x: { ticks: { color: '#94a3b8' }, grid: { display: false } },
+                y: { ticks: { color: '#94a3b8', stepSize: 1 }, grid: { color: 'rgba(255,255,255,0.05)' } }
+            }
+        }
+    });
+
+    // Assunto Pie Chart
+    new Chart(document.getElementById('produtividadeAssuntoChart'), {
+        type: 'pie',
+        data: {
+            labels: assuntoLabels,
+            datasets: [{
+                data: assuntoData,
+                backgroundColor: ['#818cf8', '#34d399', '#fbbf24', '#f87171', '#c084fc', '#2dd4bf'],
+                borderWidth: 0,
+            }]
+        },
+        options: {
+            responsive: true,
+            maintainAspectRatio: false,
+            plugins: {
+                legend: { position: 'right', labels: { color: '#94a3b8', boxWidth: 12 } }
+            }
+        }
+    });
+</script>
 {% endblock %}

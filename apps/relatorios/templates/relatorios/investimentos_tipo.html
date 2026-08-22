@@ -3,9 +3,24 @@
 {% block title %}Investimentos por Tipo{% endblock %}
 
 {% block content %}
+<div class="charts-grid">
+    <div class="card">
+        <h2>Distribuição Percentual da Carteira</h2>
+        <div class="chart-container">
+            <canvas id="investimentosDonutChart"></canvas>
+        </div>
+    </div>
+    <div class="card">
+        <h2>Volume Alocado por Categoria</h2>
+        <div class="chart-container">
+            <canvas id="investimentosBarChart"></canvas>
+        </div>
+    </div>
+</div>
+
 <div class="card">
     <h2>Consolidação de Ativos por Tipo</h2>
-    <p>Patrimônio sob Custódia: <b>R$ {{ dados.total_geral|floatformat:2 }}</b></p>
+    <p style="margin-bottom: 1rem;">Patrimônio sob Custódia: <b style="color: var(--primary); font-size: 1.25rem;">R$ {{ dados.total_geral|floatformat:2 }}</b></p>
     <table>
         <thead>
             <tr><th>Tipo</th><th>Total Alocado (R$)</th><th>Quantidade</th><th>Percentual (%)</th></tr>
@@ -13,13 +28,67 @@
         <tbody>
             {% for item in dados.itens %}
             <tr>
-                <td>{{ item.tipo }}</td>
+                <td><b>{{ item.tipo }}</b></td>
                 <td>R$ {{ item.total|floatformat:2 }}</td>
                 <td>{{ item.qtd }}</td>
-                <td>{{ item.percentual }}%</td>
+                <td><span class="badge badge-success">{{ item.percentual }}%</span></td>
             </tr>
+            {% empty %}
+            <tr><td colspan="4">Nenhum investimento cadastrado.</td></tr>
             {% endfor %}
         </tbody>
     </table>
 </div>
+
+<script>
+    const labels = [{% for item in dados.itens %}"{{ item.tipo }}",{% endfor %}];
+    const dataValues = [{% for item in dados.itens %}{{ item.total }},{% endfor %}];
+    const colors = [
+        '#38bdf8', '#818cf8', '#c084fc', '#f472b6', 
+        '#34d399', '#fbbf24', '#f87171', '#a3e635', '#2dd4bf'
+    ];
+
+    // Donut Chart
+    new Chart(document.getElementById('investimentosDonutChart'), {
+        type: 'doughnut',
+        data: {
+            labels: labels,
+            datasets: [{
+                data: dataValues,
+                backgroundColor: colors,
+                borderWidth: 0,
+            }]
+        },
+        options: {
+            responsive: true,
+            maintainAspectRatio: false,
+            plugins: {
+                legend: { position: 'right', labels: { color: '#94a3b8', boxWidth: 12 } }
+            }
+        }
+    });
+
+    // Bar Chart
+    new Chart(document.getElementById('investimentosBarChart'), {
+        type: 'bar',
+        data: {
+            labels: labels,
+            datasets: [{
+                label: 'Volume (R$)',
+                data: dataValues,
+                backgroundColor: '#38bdf8',
+                borderRadius: 4,
+            }]
+        },
+        options: {
+            responsive: true,
+            maintainAspectRatio: false,
+            plugins: { legend: { display: false } },
+            scales: {
+                x: { ticks: { color: '#94a3b8' }, grid: { display: false } },
+                y: { ticks: { color: '#94a3b8' }, grid: { color: 'rgba(255,255,255,0.05)' } }
+            }
+        }
+    });
+</script>
 {% endblock %}

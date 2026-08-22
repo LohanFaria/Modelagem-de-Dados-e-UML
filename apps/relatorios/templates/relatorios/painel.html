@@ -3,37 +3,59 @@
 {% block title %}Painel Geral{% endblock %}
 
 {% block content %}
-<div class="card">
-    <h2>Resumo de Qualidade de Dados</h2>
-    <p>Total de Clientes Cadastrados: <b>{{ qualidade.total_clientes }}</b></p>
-    <p>Clientes sem Telefone: <b>{{ qualidade.sem_telefone }}</b> | Clientes sem E-mail: <b>{{ qualidade.sem_email }}</b></p>
-    <p>Contatos em Quarentena Pendentes: <span class="badge badge-warning">{{ qualidade.quarentena_pendente }}</span></p>
+<div class="charts-grid" style="grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); margin-bottom: 1.5rem;">
+    <div class="card" style="margin-bottom: 0;">
+        <h3 style="font-size: 0.875rem; color: var(--text-muted); text-transform: uppercase;">Total de Clientes</h3>
+        <p style="font-size: 1.75rem; font-weight: 700; color: var(--primary); margin-top: 0.5rem;">{{ qualidade.total_clientes }}</p>
+    </div>
+    <div class="card" style="margin-bottom: 0;">
+        <h3 style="font-size: 0.875rem; color: var(--text-muted); text-transform: uppercase;">Patrimônio Alocado</h3>
+        <p style="font-size: 1.75rem; font-weight: 700; color: var(--success); margin-top: 0.5rem;">R$ {{ investimentos.total_geral|floatformat:2 }}</p>
+    </div>
+    <div class="card" style="margin-bottom: 0;">
+        <h3 style="font-size: 0.875rem; color: var(--text-muted); text-transform: uppercase;">Quarentena Pendente</h3>
+        <p style="font-size: 1.75rem; font-weight: 700; color: var(--warning); margin-top: 0.5rem;">{{ qualidade.quarentena_pendente }} registros</p>
+    </div>
 </div>
 
-<div class="card">
-    <h2>Total Investido por Categoria</h2>
-    <p>Volume Total sob Gestão: <b>R$ {{ investimentos.total_geral|floatformat:2 }}</b></p>
-    <table>
-        <thead>
-            <tr>
-                <th>Tipo</th>
-                <th>Volume (R$)</th>
-                <th>Aplicações</th>
-                <th>Representatividade (%)</th>
-            </tr>
-        </thead>
-        <tbody>
-            {% for item in investimentos.itens %}
-            <tr>
-                <td>{{ item.tipo }}</td>
-                <td>R$ {{ item.total|floatformat:2 }}</td>
-                <td>{{ item.qtd }}</td>
-                <td>{{ item.percentual }}%</td>
-            </tr>
-            {% empty %}
-            <tr><td colspan="4">Nenhum investimento registrado.</td></tr>
-            {% endfor %}
-        </tbody>
-    </table>
+<div class="charts-grid">
+    <div class="card">
+        <h2>Distribuição de Investimentos</h2>
+        <div class="chart-container">
+            <canvas id="painelDonutChart"></canvas>
+        </div>
+    </div>
+    <div class="card">
+        <h2>Qualidade Cadastral</h2>
+        <p style="margin-bottom: 0.75rem;">Clientes sem Telefone: <b>{{ qualidade.sem_telefone }}</b></p>
+        <p style="margin-bottom: 0.75rem;">Clientes sem E-mail: <b>{{ qualidade.sem_email }}</b></p>
+        <p style="margin-bottom: 0.75rem;">Clientes sem Conta Bancária: <b>{{ qualidade.sem_conta }}</b></p>
+        <p style="margin-bottom: 0.75rem;">Quarentenas Resolvidas: <span class="badge badge-success">{{ qualidade.quarentena_resolvida }}</span></p>
+    </div>
 </div>
+
+<script>
+    const labels = [{% for item in investimentos.itens %}"{{ item.tipo }}",{% endfor %}];
+    const dataValues = [{% for item in investimentos.itens %}{{ item.total }},{% endfor %}];
+    const colors = ['#38bdf8', '#818cf8', '#c084fc', '#f472b6', '#34d399', '#fbbf24', '#f87171', '#a3e635'];
+
+    new Chart(document.getElementById('painelDonutChart'), {
+        type: 'doughnut',
+        data: {
+            labels: labels,
+            datasets: [{
+                data: dataValues,
+                backgroundColor: colors,
+                borderWidth: 0,
+            }]
+        },
+        options: {
+            responsive: true,
+            maintainAspectRatio: false,
+            plugins: {
+                legend: { position: 'right', labels: { color: '#94a3b8', boxWidth: 12 } }
+            }
+        }
+    });
+</script>
 {% endblock %}

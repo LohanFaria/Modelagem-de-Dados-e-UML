@@ -12,7 +12,7 @@
 ## T-002 — Modelagem de dados em 3FN, validadores de CPF e constraints [concluida]
 
 - Refs: US-002, AC-002, AC-003, AC-004, AC-005
-- Arquivos: apps/clientes/__init__.py, apps/clientes/apps.py, apps/clientes/models.py, apps/clientes/validators.py, apps/clientes/migrations/__init__.py, apps/clientes/migrations/0001_initial.py, apps/investimentos/__init__.py, apps/investimentos/apps.py, apps/investimentos/models.py, apps/investimentos/migrations/__init__.py, apps/investimentos/migrations/0001_initial.py, apps/relacionamento/__init__.py, apps/relacionamento/apps.py, apps/relacionamento/models.py, apps/relacionamento/migrations/__init__.py, apps/relacionamento/migrations/0001_initial.py, apps/clientes/tests/test_models.py, apps/clientes/tests/test_validators.py, apps/investimentos/tests/test_models.py, apps/relacionamento/tests/test_models.py, docs/modelo-dados.md
+- Arquivos: apps/clientes/__init__.py, apps/clientes/apps.py, apps/clientes/models.py, apps/clientes/validators.py, apps/clientes/serializers.py, apps/clientes/views_api.py, apps/clientes/migrations/__init__.py, apps/clientes/migrations/0001_initial.py, apps/investimentos/__init__.py, apps/investimentos/apps.py, apps/investimentos/models.py, apps/investimentos/serializers.py, apps/investimentos/views_api.py, apps/investimentos/migrations/__init__.py, apps/investimentos/migrations/0001_initial.py, apps/relacionamento/__init__.py, apps/relacionamento/apps.py, apps/relacionamento/models.py, apps/relacionamento/serializers.py, apps/relacionamento/views_api.py, apps/relacionamento/migrations/__init__.py, apps/relacionamento/migrations/0001_initial.py, apps/clientes/tests/test_models.py, apps/clientes/tests/test_validators.py, apps/investimentos/tests/test_models.py, apps/relacionamento/tests/test_models.py, docs/modelo-dados.md
 - Notas: Implementar as 11 entidades de domínio + quarentena, validador de CPF, chaves substitutas, CASCADE nos dependentes e PROTECT em transações.
 
 ## T-003 — Interface administrativa customizada com inlines e listagens consolidadas [concluida]
@@ -42,5 +42,6 @@
 ## T-007 — Factories, suíte de testes de integração e seed de demonstração [concluida]
 
 - Refs: US-007, AC-015, AC-016
-- Arquivos: apps/clientes/factories.py, apps/investimentos/factories.py, apps/relacionamento/factories.py, apps/clientes/management/commands/seed_demo.py, tests/test_integration.py, tests/test_spec_xpto_investimentos_fullstack_django.py, pytest.ini
+- Arquivos: apps/clientes/factories.py, apps/investimentos/factories.py, apps/relacionamento/factories.py, apps/clientes/management/commands/seed_demo.py, tests/test_integration.py, tests/test_spec_xpto_investimentos_fullstack_django.py, tests/test_api.py, pytest.ini
 - Notas: Configuração de factory-boy para geração de dados em testes, comando seed_demo para popular ambiente de homologação e validação de cobertura.
+

@@ -15,6 +15,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     # Third party apps
     'auditlog',
+    'rest_framework',
     # Local apps
     'apps.clientes.apps.ClientesConfig',
     'apps.investimentos.apps.InvestimentosConfig',
@@ -22,6 +23,17 @@ INSTALLED_APPS = [
     'apps.importacao.apps.ImportacaoConfig',
     'apps.relatorios.apps.RelatoriosConfig',
 ]
+
+REST_FRAMEWORK = {
+    'DEFAULT_PERMISSION_CLASSES': [
+        'rest_framework.permissions.IsAuthenticated',
+    ],
+    'DEFAULT_AUTHENTICATION_CLASSES': [
+        'rest_framework.authentication.SessionAuthentication',
+        'rest_framework.authentication.BasicAuthentication',
+    ],
+}
+
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
