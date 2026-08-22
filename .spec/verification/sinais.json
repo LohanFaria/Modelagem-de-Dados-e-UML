@@ -563,145 +563,145 @@
       "codigo": "PROVA_FRACA",
       "feature": "xpto-investimentos-fullstack-django",
       "ref": "AC-001",
-      "ocorrencias": 18,
+      "ocorrencias": 19,
       "primeiraVez": "2026-08-22T01:38:21.474Z",
-      "ultimaVez": "2026-08-22T03:47:38.910Z",
-      "gitRev": "4b8d106"
+      "ultimaVez": "2026-08-22T03:49:34.001Z",
+      "gitRev": "03ac0ff"
     },
     "PROVA_FRACA::xpto-investimentos-fullstack-django::AC-002": {
       "codigo": "PROVA_FRACA",
       "feature": "xpto-investimentos-fullstack-django",
       "ref": "AC-002",
-      "ocorrencias": 18,
+      "ocorrencias": 19,
       "primeiraVez": "2026-08-22T01:38:21.476Z",
-      "ultimaVez": "2026-08-22T03:47:38.911Z",
-      "gitRev": "4b8d106"
+      "ultimaVez": "2026-08-22T03:49:34.003Z",
+      "gitRev": "03ac0ff"
     },
     "PROVA_FRACA::xpto-investimentos-fullstack-django::AC-003": {
       "codigo": "PROVA_FRACA",
       "feature": "xpto-investimentos-fullstack-django",
       "ref": "AC-003",
-      "ocorrencias": 18,
+      "ocorrencias": 19,
       "primeiraVez": "2026-08-22T01:38:21.476Z",
-      "ultimaVez": "2026-08-22T03:47:38.911Z",
-      "gitRev": "4b8d106"
+      "ultimaVez": "2026-08-22T03:49:34.003Z",
+      "gitRev": "03ac0ff"
     },
     "PROVA_FRACA::xpto-investimentos-fullstack-django::AC-004": {
       "codigo": "PROVA_FRACA",
       "feature": "xpto-investimentos-fullstack-django",
       "ref": "AC-004",
-      "ocorrencias": 18,
+      "ocorrencias": 19,
       "primeiraVez": "2026-08-22T01:38:21.476Z",
-      "ultimaVez": "2026-08-22T03:47:38.911Z",
-      "gitRev": "4b8d106"
+      "ultimaVez": "2026-08-22T03:49:34.003Z",
+      "gitRev": "03ac0ff"
     },
     "PROVA_FRACA::xpto-investimentos-fullstack-django::AC-005": {
       "codigo": "PROVA_FRACA",
       "feature": "xpto-investimentos-fullstack-django",
       "ref": "AC-005",
-      "ocorrencias": 18,
+      "ocorrencias": 19,
       "primeiraVez": "2026-08-22T01:38:21.476Z",
-      "ultimaVez": "2026-08-22T03:47:38.911Z",
-      "gitRev": "4b8d106"
+      "ultimaVez": "2026-08-22T03:49:34.003Z",
+      "gitRev": "03ac0ff"
     },
     "PROVA_FRACA::xpto-investimentos-fullstack-django::AC-006": {
       "codigo": "PROVA_FRACA",
       "feature": "xpto-investimentos-fullstack-django",
       "ref": "AC-006",
-      "ocorrencias": 18,
+      "ocorrencias": 19,
       "primeiraVez": "2026-08-22T01:38:21.476Z",
-      "ultimaVez": "2026-08-22T03:47:38.911Z",
-      "gitRev": "4b8d106"
+      "ultimaVez": "2026-08-22T03:49:34.003Z",
+      "gitRev": "03ac0ff"
     },
     "PROVA_FRACA::xpto-investimentos-fullstack-django::AC-007": {
       "codigo": "PROVA_FRACA",
       "feature": "xpto-investimentos-fullstack-django",
       "ref": "AC-007",
-      "ocorrencias": 18,
+      "ocorrencias": 19,
       "primeiraVez": "2026-08-22T01:38:21.476Z",
-      "ultimaVez": "2026-08-22T03:47:38.911Z",
-      "gitRev": "4b8d106"
+      "ultimaVez": "2026-08-22T03:49:34.003Z",
+      "gitRev": "03ac0ff"
     },
     "PROVA_FRACA::xpto-investimentos-fullstack-django::AC-008": {
       "codigo": "PROVA_FRACA",
       "feature": "xpto-investimentos-fullstack-django",
       "ref": "AC-008",
-      "ocorrencias": 18,
+      "ocorrencias": 19,
       "primeiraVez": "2026-08-22T01:38:21.476Z",
-      "ultimaVez": "2026-08-22T03:47:38.911Z",
-      "gitRev": "4b8d106"
+      "ultimaVez": "2026-08-22T03:49:34.003Z",
+      "gitRev": "03ac0ff"
     },
     "PROVA_FRACA::xpto-investimentos-fullstack-django::AC-009": {
       "codigo": "PROVA_FRACA",
       "feature": "xpto-investimentos-fullstack-django",
       "ref": "AC-009",
-      "ocorrencias": 18,
+      "ocorrencias": 19,
       "primeiraVez": "2026-08-22T01:38:21.476Z",
-      "ultimaVez": "2026-08-22T03:47:38.911Z",
-      "gitRev": "4b8d106"
+      "ultimaVez": "2026-08-22T03:49:34.003Z",
+      "gitRev": "03ac0ff"
     },
     "PROVA_FRACA::xpto-investimentos-fullstack-django::AC-010": {
       "codigo": "PROVA_FRACA",
       "feature": "xpto-investimentos-fullstack-django",
       "ref": "AC-010",
-      "ocorrencias": 18,
+      "ocorrencias": 19,
       "primeiraVez": "2026-08-22T01:38:21.476Z",
-      "ultimaVez": "2026-08-22T03:47:38.911Z",
-      "gitRev": "4b8d106"
+      "ultimaVez": "2026-08-22T03:49:34.003Z",
+      "gitRev": "03ac0ff"
     },
     "PROVA_FRACA::xpto-investimentos-fullstack-django::AC-011": {
       "codigo": "PROVA_FRACA",
       "feature": "xpto-investimentos-fullstack-django",
       "ref": "AC-011",
-      "ocorrencias": 18,
+      "ocorrencias": 19,
       "primeiraVez": "2026-08-22T01:38:21.476Z",
-      "ultimaVez": "2026-08-22T03:47:38.911Z",
-      "gitRev": "4b8d106"
+      "ultimaVez": "2026-08-22T03:49:34.003Z",
+      "gitRev": "03ac0ff"
     },
     "PROVA_FRACA::xpto-investimentos-fullstack-django::AC-012": {
       "codigo": "PROVA_FRACA",
       "feature": "xpto-investimentos-fullstack-django",
       "ref": "AC-012",
-      "ocorrencias": 18,
+      "ocorrencias": 19,
       "primeiraVez": "2026-08-22T01:38:21.476Z",
-      "ultimaVez": "2026-08-22T03:47:38.911Z",
-      "gitRev": "4b8d106"
+      "ultimaVez": "2026-08-22T03:49:34.003Z",
+      "gitRev": "03ac0ff"
     },
     "PROVA_FRACA::xpto-investimentos-fullstack-django::AC-013": {
       "codigo": "PROVA_FRACA",
       "feature": "xpto-investimentos-fullstack-django",
       "ref": "AC-013",
-      "ocorrencias": 18,
+      "ocorrencias": 19,
       "primeiraVez": "2026-08-22T01:38:21.476Z",
-      "ultimaVez": "2026-08-22T03:47:38.911Z",
-      "gitRev": "4b8d106"
+      "ultimaVez": "2026-08-22T03:49:34.003Z",
+      "gitRev": "03ac0ff"
     },
     "PROVA_FRACA::xpto-investimentos-fullstack-django::AC-014": {
       "codigo": "PROVA_FRACA",
       "feature": "xpto-investimentos-fullstack-django",
       "ref": "AC-014",
-      "ocorrencias": 18,
+      "ocorrencias": 19,
       "primeiraVez": "2026-08-22T01:38:21.476Z",
-      "ultimaVez": "2026-08-22T03:47:38.911Z",
-      "gitRev": "4b8d106"
+      "ultimaVez": "2026-08-22T03:49:34.003Z",
+      "gitRev": "03ac0ff"
     },
     "PROVA_FRACA::xpto-investimentos-fullstack-django::AC-015": {
       "codigo": "PROVA_FRACA",
       "feature": "xpto-investimentos-fullstack-django",
       "ref": "AC-015",
-      "ocorrencias": 18,
+      "ocorrencias": 19,
       "primeiraVez": "2026-08-22T01:38:21.476Z",
-      "ultimaVez": "2026-08-22T03:47:38.912Z",
-      "gitRev": "4b8d106"
+      "ultimaVez": "2026-08-22T03:49:34.003Z",
+      "gitRev": "03ac0ff"
     },
     "PROVA_FRACA::xpto-investimentos-fullstack-django::AC-016": {
       "codigo": "PROVA_FRACA",
       "feature": "xpto-investimentos-fullstack-django",
       "ref": "AC-016",
-      "ocorrencias": 18,
+      "ocorrencias": 19,
       "primeiraVez": "2026-08-22T01:38:21.476Z",
-      "ultimaVez": "2026-08-22T03:47:38.912Z",
-      "gitRev": "4b8d106"
+      "ultimaVez": "2026-08-22T03:49:34.003Z",
+      "gitRev": "03ac0ff"
     },
     "VERIFY_OBSOLETO::xpto-investimentos-fullstack-django::—": {
       "codigo": "VERIFY_OBSOLETO",
