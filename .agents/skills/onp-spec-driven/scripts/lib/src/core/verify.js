@@ -134,12 +134,7 @@ export function runVerify(project, featureName) {
   });
 
   const output = `${proc.stdout || ''}\n${proc.stderr || ''}${proc.error ? '\n' + proc.error.stack : ''}`;
-  console.log('[onp-spec verify DEBUG] spawn status:', proc.status);
-  console.log('[onp-spec verify DEBUG] spawn stdout:\n' + (proc.stdout || '(vazio)'));
-  console.log('[onp-spec verify DEBUG] spawn stderr:\n' + (proc.stderr || '(vazio)'));
-  if (proc.error) {
-    console.error('[onp-spec verify DEBUG] spawn error:', proc.error);
-  }
+
 
 
 
