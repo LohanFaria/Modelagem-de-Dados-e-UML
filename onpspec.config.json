@@ -1,6 +1,7 @@
 {
-  "testCommand": ".venv/bin/pytest",
+  "testCommand": "pytest",
   "reporter": "exitcode",
+
   "testGlobs": [
     "tests/**",
     "apps/**/tests.py",

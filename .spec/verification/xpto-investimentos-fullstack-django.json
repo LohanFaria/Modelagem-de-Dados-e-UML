@@ -1,8 +1,8 @@
 {
   "feature": "xpto-investimentos-fullstack-django",
-  "timestamp": "2026-08-22T03:12:22.269Z",
-  "gitRev": "b9b7fef",
-  "command": ".venv/bin/pytest",
+  "timestamp": "2026-08-22T03:24:09.840Z",
+  "gitRev": "ca1ecdc",
+  "command": "pytest",
   "reporter": "exitcode",
   "exitCode": 0,
   "testsParsed": 0,
